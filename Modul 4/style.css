@@ -1,0 +1,95 @@
+:root {
+    --bg: #b71c1c;
+    --light: #e53935;
+    --dark: #7f0000;
+    --gold: #ffd700;
+    --text: #fff5e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container utama */
+.container {
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 30px;
+    background: var(--bg);
+    box-shadow:
+        15px 15px 30px var(--dark),
+        -15px -15px 30px var(--light);
+    text-align: center;
+}
+
+/* Judul */
+h1 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px #5c0000;
+}
+
+/* Subjudul */
+h2 {
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--text);
+}
+
+/* Card ucapan */
+.card {
+    padding: 25px;
+    border-radius: 20px;
+    background: var(--bg);
+    box-shadow:
+        inset 8px 8px 15px var(--dark),
+        inset -8px -8px 15px var(--light);
+    margin-bottom: 30px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+/* Tombol neumorphic */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--gold);
+    background: var(--bg);
+    box-shadow:
+        8px 8px 15px var(--dark),
+        -8px -8px 15px var(--light);
+    transition: all 0.2s ease;
+}
+
+.button:active {
+    box-shadow:
+        inset 8px 8px 15px var(--dark),
+        inset -8px -8px 15px var(--light);
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #ffe4c4;
+}
