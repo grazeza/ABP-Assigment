@@ -52,7 +52,7 @@
 
 ### Pengenalan CSS
 
-Cascading Style Sheets (CSS) merupakan bahasa yang membantu memperindah tampilan dari laman webyang telah dibangun dengan HTML. CSS mendeskripsikan bagaimana bentuk tampilan elemen HTML seharusnya saat ditampilkan pada laman browser
+Cascading Style Sheets (CSS) merupakan bahasa yang membantu memperindah tampilan dari laman webyang telah dibangun dengan HTML. CSS mendeskripsikan bagaimana bentuk tampilan elemen HTML seharusnya saat ditampilkan pada laman browser.
 
 <br/>
 
@@ -90,10 +90,7 @@ Internal Style Sheet merupakan cara menyisipkan atau mendefinisikan CSS ke dalam
 
 3. Inline Style
 
-Inline Style menyisipkan atau mendefinisikan CSS ke dalam HTML dengan menambahkan atribut style
-pada elemen yang ingin ditambahkan CSS. Biasanya digunakan hanya untuk satu elemen yang
-membutuhkan style CSS yang berbeda dari yang telah didefinisikan pada Internal Style atau Eksternal
-Style.
+Inline Style menyisipkan atau mendefinisikan CSS ke dalam HTML dengan menambahkan atribut stylepada elemen yang ingin ditambahkan CSS. Biasanya digunakan hanya untuk satu elemen yangmembutuhkan style CSS yang berbeda dari yang telah didefinisikan pada Internal Style atau EksternalStyle.
 
 ```html
 <h1 style="color:lightblue; font-size:30px;">Praktikum Web Programming</h1>
@@ -101,7 +98,7 @@ Style.
 
 #### Selector
 
-Selector pada CSS digunakan untuk menemukan elemen HTML untuk diberi CSS berdasarkan selector yang didefinisikan. Bentuk selector ada beberapa antara lain nama elemen HTML, atribut ID dan atribut Class.
+Selector pada CSS digunakan untuk menemukan elemen HTML untuk diberi CSS berdasarkan selector yang didefinisikan. Bentuk selector ada beberapa antara lain nama elemen HTML, atribut `id` dan atribut `class`.
 
 ```css
 /*Selector dengan Elemen 
