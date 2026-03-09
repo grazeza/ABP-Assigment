@@ -20,7 +20,7 @@ Git pada umumnya digunakan untuk version controlling suatu software, berikut lis
 
 #### 1. Membuat repositori baru
 
-Perintah `git ini`t akan membuat sebuah direktori bernama .git di dalam proyek yang akan dikerjakan. Direktori ini digunakan Git sebagai database untuk menyimpan perubahan yang kita lakukan.
+Perintah `git init` akan membuat sebuah direktori bernama .git di dalam proyek yang akan dikerjakan. Direktori ini digunakan Git sebagai database untuk menyimpan perubahan yang kita lakukan.
 
 #### 2. Menambahkan isi repositori
 
