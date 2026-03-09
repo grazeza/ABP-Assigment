@@ -1,46 +1,52 @@
-<h2 align="center"><strong>LAPORAN PRAKTIKUM</strong></h2>
-<h2 align="center"><strong>APLIKASI BERBASIS PLATFORM</strong></h2>
+<div align="center">
+  <br />
 
-<br>
+  <h1>LAPORAN PRAKTIKUM <br>
+  APLIKASI BERBASIS PLATFORM
+  </h1>
 
-<h2 align="center"><strong>MODUL II</strong></h2>
-<h2 align="center"><strong> HTML </strong></h2>
+  <br />
 
-<br>
+  <h3>MODUL II <br>
+  HTML
+  </h3>
 
-<p align="center">
+  <br />
+
+  <img src="images/logo.jpeg" alt="Logo" width="300">
+
+  <br />
+  <br />
+  <br />
+
+  <h3>Disusun Oleh :</h3>
+
+  <p>
+    <strong>Fahreza Ilham Wicaksono</strong><br>
+    <strong>2311102191</strong><br>
+    <strong>S1 IF-11-REG01</strong>
+  </p>
+
+  <br />
+
+  <h3>Dosen Pengampu :</h3>
+
+  <p>
+    <strong>Dimas Fanny Hebrasianto Permadi, S.ST., M.Kom</strong>
+  </p>
   
-  <img src="images/logo" alt="Logo" width="200"/>
+  <br />
+  <br />
+    <h4>Asisten Praktikum :</h4>
+    <strong> Apri Pandu Wicaksono </strong> <br>
+    <strong>Rangga Pradarrell Fathi</strong>
+  <br />
 
-</p>
+  <h3>LABORATORIUM HIGH PERFORMANCE
+ <br>FAKULTAS INFORMATIKA <br>UNIVERSITAS TELKOM PURWOKERTO <br>2026</h3>
+</div>
 
-<br>
-
-<p align="center">
-  <strong>Disusun Oleh:</strong><br>
-  Andreas Besar Wibowo / 2311102198<br>
-  S1 IF11-05
-</p>
-
-<br>
-
-<p align="center">
-  <strong>Dosen Pengampu:</strong><br>
-  Arif Amrulloh,S.Kom.,M.Kom.
-</p>
-
-<br>
-
-<p align="center">
-  <strong>PROGRAM STUDI S1 TEKNIK INFORMATIKA</strong><br>
-  <strong>FAKULTAS INFORMATIKA</strong><br>
-  <strong>TELKOM UNIVERSITY PURWOKERTO</strong><br>
-  <strong>2024</strong>
-</p>
-# <h1 align="center"> Laporan Praktikum Modul Git </h1>
-
-<p align="center"> 2311102191 </p>
-<p align="center"> Fahreza Ilham Wicaksono </p>
+<hr>
 
 ## Dasar Teori
 
