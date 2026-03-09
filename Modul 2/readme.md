@@ -1,7 +1,45 @@
-# <h1 align="center"> Laporan Praktikum Modul Git </h1>
+<h2 align="center"><strong>LAPORAN PRAKTIKUM</strong></h2>
+<h2 align="center"><strong>APLIKASI BERBASIS PLATFORM</strong></h2>
 
-<p align="center"> 2311102191 </p>
-<p align="center"> Fahreza Ilham Wicaksono </p>
+<br>
+
+<h2 align="center"><strong>MODUL I</strong></h2>
+<h2 align="center"><strong> GIT </strong></h2>
+
+<br>
+
+<p align="center">
+  
+  <img src="images/logo.jpeg" alt="Logo" width="200"/>
+
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Disusun Oleh:</strong><br>
+  Fahreza Ilham Wicaksono<br>
+  2311102191<br>
+  S1 IF-11-REG01
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Dosen Pengampu:</strong><br>
+  Dimas Fanny Hebrasianto Permadi, S.ST., M.Kom
+</p>
+
+<br />
+  <h3>Asisten Praktikum :</h3>
+  <p>
+    <strong>Apri Pandu Wicaksono</strong><br>
+    <strong>Rangga Pradarrell Fathi</strong><br>
+  </p>
+  <br />
+  <h3>LABORATORIUM HIGH PERFORMANCE<br>FAKULTAS INFORMATIKA <br>TELKOM UNIVERSITY PURWOKERTO <br>2026</h3>
+</div>
+---
 
 ## Dasar Teori
 

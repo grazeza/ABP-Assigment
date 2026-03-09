@@ -1,287 +1,99 @@
-# <h1 class="center"> Laporan Praktikum Modul HTML </h1>
-Fahreza Ilham Wicaksono
+<h2 align="center"><strong>LAPORAN PRAKTIKUM</strong></h2>
+<h2 align="center"><strong>APLIKASI BERBASIS PLATFORM</strong></h2>
+
+<br>
+
+<h2 align="center"><strong>MODUL I</strong></h2>
+<h2 align="center"><strong> Git </strong></h2>
+
+<br>
+
+<p align="center">
+  
+  <img src="images/logo" alt="Logo" width="200"/>
+
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Disusun Oleh:</strong><br>
+  Andreas Besar Wibowo / 2311102198<br>
+  S1 IF11-05
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Dosen Pengampu:</strong><br>
+  Arif Amrulloh,S.Kom.,M.Kom.
+</p>
+
+<br>
+
+<p align="center">
+  <strong>PROGRAM STUDI S1 TEKNIK INFORMATIKA</strong><br>
+  <strong>FAKULTAS INFORMATIKA</strong><br>
+  <strong>TELKOM UNIVERSITY PURWOKERTO</strong><br>
+  <strong>2024</strong>
+</p>
+# <h1 align="center"> Laporan Praktikum Modul Git </h1>
+
+<p align="center"> 2311102191 </p>
+<p align="center"> Fahreza Ilham Wicaksono </p>
 
 ## Dasar Teori
-Tipe data merpukan pengelompokan data berdasarkan ciri-cirinya. Jenis ini mempunya fungsi yang berbeda-beda yang digunakan oleh compiler untuk mengetahui bagaimana sebuah data digunakan. Ada 3 tipe data yaitu primitif, abstak, dan koleksi.
-### - Tipe data Primitif
-Tipe data primitif merupakan tipe data yang sudah ditentukan oleh program c++ itu sendiri. Contohnya yaitu int, float, string, boolean dan char.
-### - Tipe data Abstrak
-Tipe data abstark adalah tipe data yang dibuat atau diciptakan oleh programmer itu sendiri.
-### - Tipe data Koleksi
-Tipe data Koleksi merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan di suatu variabel. Contohnya array, vector, dan map.
 
-## Guided
-### 1. Tipe data primitf
-```c++
-#include <iostream>
+### Pengenalan Git
 
-using namespace std;
+Git adalah salah satu sistem pengontrol versi (Version Control System) pada proyek perangkat lunak yang diciptakan oleh Linus Torvalds. Pengontrol versi bertugas mencatat setiap perubahan pada file proyek yang dikerjakan oleh banyak orang maupun sendiri. Git dikenal juga dengan distributed revision control (VCS terdistribusi), artinya penyimpanan database Git tidak hanya berada dalam satu tempat saja.
 
-int main()
-{
-    char op;
-    float num1, num2;
-    cout << "Masukkan jenis operator: ";
-    cin >> op;
-    cout << "Iputkan angka pertama: ";
-    cin >> num1;
-    cout << "Iputkan angka kedua: ";
-    cin >> num2;
+### Instalasi Git
 
-    switch (op)
-    {
-    case '+':
-        cout << num1 + num2;
-        break;
-    case '-':
-        cout << num1 - num2;
-        break;
-    case '*':
-        cout << num1 * num2;
-        break;
-    case '/':
-        cout << num1 / num2;
-        break;
-    default:
-        cout << "Error! operator is not valid" << endl;
-    }
+Untuk menginstall git bisa membuka link berikut ini [installer github](https://git-scm.com/download/win) untuk mengunduh Git terlebih dahulu. Setelah berhasil mengunduh lakukan instalasi dengan mengikuti arahan pada installer git. Lalu ketika instalasi berhasil bisa mengecek versi git dengan menggunakan command `git -- version`
+![Image 1](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/image1.png)
 
-    return 0;
-}
-```
-Kode diatas merupakan implementasi dari penggunaan tipe data primitif `float`, yang berfungsi seperti kalkulator sederhana.
+### Penggunaan Git
 
-### 2. Tipe data abstark
-```c++
-#include <iostream>
-#include <stdio.h>
+Git pada umumnya digunakan untuk version controlling suatu software, berikut list penggunaan github:
 
-using namespace std;
+#### 1. Membuat repositori baru
 
-// struct
-struct Mahasiswa
-{
-    const char *name;
-    const char *address;
-    int age;
-};
+Perintah `git init` akan membuat sebuah direktori bernama .git di dalam proyek yang akan dikerjakan. Direktori ini digunakan Git sebagai database untuk menyimpan perubahan yang kita lakukan.
 
-int main()
-{
-    // inisialisasi struct
-    struct Mahasiswa mhs1, mhs2;
+#### 2. Menambahkan isi repositori
 
-    // pengisian value
-    mhs1.name = "Fahreza";
-    mhs1.address = "Ketenger";
-    mhs1.age = 18;
+Untuk menambahkan suatu file ke dalam repositori, dapat langsung menambahkan file ke dalam folder projek yang telah dibuat, sebelum file benar benar tersimpan harus melakukan command `git commit -m “pesan commit”`.
 
-    mhs2.name = "Evan";
-    mhs2.address = "Semaya";
-    mhs2.age = 19;
+#### 3. Membuat repositori online
 
-    // mencetak isi struct
-    printf("## Mahasiswa 1 ##\n");
-    printf("Nama: %s\n", mhs1.name);
-    printf("Alamat: %s\n", mhs1.address);
-    printf("Umur: %d\n", mhs1.age);
-    printf("## Mahasiswa 2 ##\n");
-    printf("Nama: %s\n", mhs2.name);
-    printf("Alamat: %s\n", mhs2.address);
-    printf("Umur: %d\n", mhs2.age);
+Untuk membuat repositori online dapat dilakukan melalui website github.
 
-    return 0;
-}
-```
-Kode diatas merupakan implementasi tipe data abstak yaitu `struct`, yang berfungsi untuk menyimpan tipe data yang berbeda di suatu variabel.
+#### 4. Menyimpan hasil pekerjaan di repositori online
 
-### 3. Tipe data koleksi
-```c++
-#include <iostream>
+Untuk menyimpan hasil pekerjaan bisa mengikuti langkah langkah berikut:
 
-using namespace std;
+- a. Ketikan perintah ini, sesuaikan dengan username dan repository Anda:
+`git remote add origin https://github.com/usernameanda/namarepo.git`
+Perintah ini akan menambahkan repositori online yang ada pada Github kedalam daftar repositori jarak jauh yang ada.
+- b. Untuk mengirimkan data yang ada di komputer kalian ke repositori jarak jauh, gunakan perintah ini:
+`git push -u origin master`
 
-int main()
-{
-    // deklarasi dan inisalisasi array
-    int nilai[5];
-    nilai[0] = 75;
-    nilai[1] = 80;
-    nilai[2] = 85;
-    nilai[3] = 60;
-    nilai[4] = 90;
+#### 5. Clone repositori milik orang lain  
 
-    // mencetak array
-    cout << "Isi array pertama :" << nilai[0] << endl;
-    cout << "Isi array kedua :" << nilai[1] << endl;
-    cout << "Isi array ketiga :" << nilai[2] << endl;
-    cout << "Isi array keempat :" << nilai[3] << endl;
-    cout << "Isi array kelima :" << nilai[4] << endl;
-    return 0;
-}
-```
-Kode diatas merupakan implementasi tipe data koleksi `array`, yang berfungsi untuk menyimpan berbagai data dengan tipe data yang sama di suatu variabel.
+Untuk mengclone repositori orang lain bisa mengikuti langkah langkah berikut:
 
-## Unguided
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas. Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif! 
-``` c++
-#include <iostream>
+- a. Buka repositori yang akan di-clone pada Github, lalu klik tombol clone.
+- b. Copy text yang muncul seperti dibawah ini, ini merupakan url dari repositori tujuan yang akan di clone.
+- c. Buka command prompt dan ketikan perintah ini, `git clone [url repositori tujuan]`
 
-using namespace std;
+## Tugas
 
-// fungsi cek even or odd number
-void JenisAngka(int angka)
-{
-    if (angka % 2 == 0) // jika habis dibagi 2
-    {
-        cout << "Amgka yang anda inputkan merupakan angka genap" << endl;
-    }
-    else
-    {
-        cout << "Amgka yang anda inputkan merupakan angka ganjil" << endl;
-    }
-}
+### 1. Melakukan setup repository via CLI
 
-// fungsi banfing angka 1 dan angka 2
-void Bandingkan(int angka1, int angka2)
-{
-    if (angka1 > angka2)
-    {
-        cout << "Angka pertama lebih besar daripada angka kedua" << endl;
-    }
-    else if (angka1 < angka2)
-    {
-        cout << "Angka kedua lebih besar daripada angka pertama" << endl;
-    }
-    else if (angka1 == angka2)
-    {
-        cout << "Angka pertama sama dengan angka kedua" << endl;
-    }
-}
-
-int main()
-{
-    cout << "Fungsi Pertama" << endl;
-    JenisAngka(789);
-    JenisAngka(234);
-
-    cout << "Fungsi Kedua" << endl;
-    Bandingkan(3, 7);
-    Bandingkan(123, 90);
-    Bandingkan(4,4);
-}
-```
 ### Output
-![Output 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output1.png)
-Kode diatas adalah contoh penggunaan dari tipe data primitif. Fungsi pertama digunakan untuk mengecek angka apakah ganjil atau genap sedangkan fungsi kedua untuk membandingkan antara angka pertama atau kedua. 
-Kesimpulanya adalah tipe data ini merupakan tipe data default, yang mana tidak ada fleksibilitas dalam penggunaanya namun tipe data ini yang menjadi pondasi dari seluruh program c++.
-### Full code Screenshot
-![Code 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code1.png)
 
-### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
-``` c++
-#include <iostream>
-#include <stdio.h>
-
-using namespace std;
-
-// inisialisasi class
-class Game
-{
-public:
-    string nama;
-    string genre;
-    int tahun;
-    string size;
-
-    // fungsi menampilkan info class
-    void displayInfo()
-    {
-        cout << "Game " << nama << " dengan genre " << genre << " di publish tahun " << tahun << " dengan size " << size << endl;
-    }
-};
-
-// inisialisasi struct
-struct Hero
-{
-    const char *name;
-    const char *role;
-    string type;
-};
-
-int main()
-{
-    // deklarasi class
-    Game game1;
-
-    game1.nama = "Dark Souls";
-    game1.genre = "RPG Linear";
-    game1.tahun = 2018;
-    game1.size = "9,2 GB";
-    game1.displayInfo();
-
-    // deklarasi struct
-    Hero hero1;
-    hero1.name = "John Dark Soul";
-    hero1.role = "Sorcerer";
-    hero1.type = "DPS";
-
-    cout << endl;
-    cout << "Karakter" << endl;
-    cout << "Name: " << hero1.name << endl;
-    cout << "Role: " << hero1.role << endl;
-    cout << "Type: " << hero1.type << endl;
-
-    return 0;
-}
-```
-### Output
-![Output 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output2.png)
-Class merupakan tipe data defaultnya adalah private, jadi jika objek anggota dari class itu sendiri ingin dipublikasikan, maka harus menyertakan public di potongan kode tersebut Sedangakan Struct atau structure merupakan tipe data yang menyimpan beberapa data dengan default public, Struktur bermanfaat untuk mengelompokan sejumlah data dengan tipe yang berlainan[1]. Kode diatas merupakan contoh penggunaan class dan struct, pada class menyertakan public agar kode bisa diakses di int main dan pada struct karena defaultnya public jadi langsung inisialisasi variabel.
-### Full code Screenshot
-![Code 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code2.png)
-
-### 3. Buat dan jelaskan program menggunakan fungsi map dan jelaskan perbedaan dari array dengan map
-```c++
-#include <iostream>
-#include <map>
-
-using namespace std;
-
-int main()
-{
-    // insialisasi dan deklarasi map
-    map<string, int> dataDamage;
-
-    // isi value map
-    dataDamage["Strength"] = 650;
-    dataDamage["Dexterity"] = 500;
-    dataDamage["Intellegence"] = 800;
-    dataDamage["Faith"] = 700;
-
-    cout << "Informasi Damage Build" << endl;
-    
-    // perulangan range based loop untuk menampilkan map
-    for (auto& entry : dataDamage) {
-        cout << "Build " << entry.first << " Damage: " << entry.second << endl;
-    }
-
-    return 0;
-}
-```
-### Output
-![Output 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output3.png)
-Kode diatas merupakan penggunaan map dalam c++, dimulai dari insialisasi map beserta tipe datanya kemudian pengisian map pada int main lalu terakhir dengan perulangan for range based loop dengan menggunakan `auto` mencetak map tersebut. Perbedaan antara array dan map terletak pada tipe data indeks pada map yang memungkinkan untuk berupa tipe data selain integer[2].
-### Full code Screenshot
-![Code 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code3.png)
-
-## Kesimpulan
-Tipe data adalah klasifikasi atau pengelompokan data berdasarkan sifat atau ciri-ciri tertentu. Setiap jenis tipe data memiliki fungsi yang berbeda-beda yang memungkinkan programmer untuk lebih leluasa membuat atau menciptakan suatu logika program yang lebih kompleks dan efisien juga digunakan oleh compiler untuk memahami cara data tersebut digunakan dalam program. Ada tiga tipe data utama, yaitu primitif, abstak, dan koleksi. 
-- Tipe data primitif merupakan tipe data default yang menjadi pondasi
-- Tipe data abstrak merupakan tipe data yang dibuat oleh programmer yang biasa digunakan di pemograman OOP.
-- Tipe data kolektif merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan.
-
-## Referensi
-[1] Akbar, Ramadhani. Struct dan Class. boltremjaya.wordpress.com; 2013. https://boltremjaya.wordpress.com/2013/09/16/struct-dan-class/
-
-[2] Adam, Rian. TUTORIAL STRUKTUR DATA MAP PADA C++. structilmy.com; 2020. https://structilmy.com/blog/2020/08/08/tutorial-struktur-data-map-pada-c/
+![Output 1](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/task_image1.png)
+Gambar tersebut merupakan proses untuk membuat suatu repositori mulai dari `git init` sampai `git push origin main`. git init merupakan inisialisasi repositori lokal lalu diikuti dengan penambahan file ke repositori, commit, pembuatan branch, clone repositori online lalu yang terakhir push.
+![Output 2](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/task_image2.png)
+Gambar tersebut merupakan contoh output dari command-command sebelumnya. File berhasil disimpan pada repositori online melalui CLI.
