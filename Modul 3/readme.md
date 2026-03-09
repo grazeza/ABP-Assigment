@@ -3,8 +3,8 @@
 
 <br>
 
-<h2 align="center"><strong>MODUL I</strong></h2>
-<h2 align="center"><strong> Git </strong></h2>
+<h2 align="center"><strong>MODUL II</strong></h2>
+<h2 align="center"><strong> HTML </strong></h2>
 
 <br>
 
@@ -44,56 +44,308 @@
 
 ## Dasar Teori
 
-### Pengenalan Git
+### Pengenalan HTML
 
-Git adalah salah satu sistem pengontrol versi (Version Control System) pada proyek perangkat lunak yang diciptakan oleh Linus Torvalds. Pengontrol versi bertugas mencatat setiap perubahan pada file proyek yang dikerjakan oleh banyak orang maupun sendiri. Git dikenal juga dengan distributed revision control (VCS terdistribusi), artinya penyimpanan database Git tidak hanya berada dalam satu tempat saja.
+HTML atau HyperText Markup Language merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada pembangunan sebuah website.
 
-### Instalasi Git
+#### Tag HTML
 
-Untuk menginstall git bisa membuka link berikut ini [installer github](https://git-scm.com/download/win) untuk mengunduh Git terlebih dahulu. Setelah berhasil mengunduh lakukan instalasi dengan mengikuti arahan pada installer git. Lalu ketika instalasi berhasil bisa mengecek versi git dengan menggunakan command `git -- version`
-![Image 1](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/image1.png)
+Tag dalam HTML secara normal memiliki sepasang tag di mana tag pertama merupakan tag pembuka dan yang kedua merupakan tag penutup. Konten yang ingin ditampilkan pada laman web diletakkan di antara kedua tag tersebut.
 
-### Penggunaan Git
+```html
+<nama_tag> letakkan konten di sini … </nama_tag>
+```
 
-Git pada umumnya digunakan untuk version controlling suatu software, berikut list penggunaan github:
+Tag dalam HTML tidak semuanya berbentuk pasangan, ada beberapa tag yang hanya berdiri sendiri seperti tag `<br/>` yang berguna untuk berpindah baris.
 
-#### 1. Membuat repositori baru
+#### Elemen HTML
 
-Perintah `git init` akan membuat sebuah direktori bernama .git di dalam proyek yang akan dikerjakan. Direktori ini digunakan Git sebagai database untuk menyimpan perubahan yang kita lakukan.
+Elemen HTML merupakan tag HTML yang telah memiliki konten atau isi di antara kedua tag pembuka dan  penutupnya. Elemen HTML dapat berupa teks atau juga dapat menyisipkan tag HTML lain pada elemen tersebut.
 
-#### 2. Menambahkan isi repositori
+#### Atribut HTML
 
-Untuk menambahkan suatu file ke dalam repositori, dapat langsung menambahkan file ke dalam folder projek yang telah dibuat, sebelum file benar benar tersimpan harus melakukan command `git commit -m “pesan commit”`.
+Atribut HTML merupakan tambahan informasi dari sebuah tag HTML. Bentuk atribut untuk setiap tag HTML berbeda-beda sehingga kegunaan atribut juga berbeda seperti menambahkan informasi warna elemen, ukuran lebar, ukuran panjang dan lain-lain. Namun, mayoritas atribut yang sering muncul untuk setiap tag HTML adalah atribut `id` dan `class` karena kedua atribut ini berperan besar dalam pengembangan laman web dengan CSS dan JavaScript. Atribut HTML dideklarasikan di dalam tag pembuka pada setiap elemen HTML dengan format nama_atribut=”value”, setiap nilai atribut diapit oleh petik dua.
 
-#### 3. Membuat repositori online
+### Dasar Sintaks HTML
 
-Untuk membuat repositori online dapat dilakukan melalui website github.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
 
-#### 4. Menyimpan hasil pekerjaan di repositori online
+Seperti yang sudah dijelaskan sebelumnya struktur dasar HTML antara lain berupa:
 
-Untuk menyimpan hasil pekerjaan bisa mengikuti langkah langkah berikut:
+- Deklarasi <! DOCTYPE html> mendefinisikan dokumen menjadi HTML5
+- Elemen `<html>` adalah elemen dasar dari halaman HTML
+- Elemen `<head>` berisi informasi meta tentang dokumen
+- Elemen `<title>` menentukan judul untuk dokumen
+- Elemen `<body>` berisi konten halaman yang terlihat
 
-- a. Ketikan perintah ini, sesuaikan dengan username dan repository Anda:
-`git remote add origin https://github.com/usernameanda/namarepo.git`
-Perintah ini akan menambahkan repositori online yang ada pada Github kedalam daftar repositori jarak jauh yang ada.
-- b. Untuk mengirimkan data yang ada di komputer kalian ke repositori jarak jauh, gunakan perintah ini:
-`git push -u origin master`
+### Heading
 
-#### 5. Clone repositori milik orang lain  
+Heading pada HTML merupakan tag yang berguna untuk menampilkan judul dari konten laman web yang dibangun. Dalam HTML terdapat enam tingkatan Heading di mana semakin kecil nilai heading nya maka semakin penting dan semakin besar ukurannya pada laman web.
 
-Untuk mengclone repositori orang lain bisa mengikuti langkah langkah berikut:
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
 
-- a. Buka repositori yang akan di-clone pada Github, lalu klik tombol clone.
-- b. Copy text yang muncul seperti dibawah ini, ini merupakan url dari repositori tujuan yang akan di clone.
-- c. Buka command prompt dan ketikan perintah ini, `git clone [url repositori tujuan]`
+![Image 1](images/image1.png)
+
+### Hyperlink
+
+Hyperlink dalam HTML memungkinkan halaman web berpindah laman atau bernavigasi menuju laman web yang lain. Tag yang digunakan adalah tag `<a>…</a>` dengan atribut href sebagai urlnya.
+
+```html
+<a href="https://instagram.com">IG</a>
+```
+
+### Tabel
+
+Tabel pada HTML merupakan salah satu elemen penting khususnya digunakan untuk menampilkan data yang membutuhkan bentuk tabel. Tabel pada HTML didefinisikan dengan tag `<table></table>` dengan setiap pendefinisian baris menggunakan tag `<tr></tr>`, pendefinisian heading tabel menggunakan tag `<th></th>` dan pendefinisian kolom menggunakan tag `<td></td>`. <br/>
+
+Dalam tabel HTML kita dapat melakukan operasi Merge Cell yang biasanya dapat dilakukan pada aplikasi perkantoran seperti Microsoft Word atau Excel dengan cara menambahkan atribut colspan dan rowspanpada tag pembuka kolom yaitu `<td>` nilai dari atribut tersebut berupa jumlah kolom atau baris yang akan djgabungkan.
+
+```html
+ <table border="5">
+        <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Kelas</th>
+        </tr>
+
+        <tr>
+            <td>Fahreza</td>
+            <td>2311102191</td>
+            <td>S1IF-11-01</td>
+        </tr>
+
+        <tr>
+            <td>Fahreza</td>
+            <td>2311102191</td>
+            <td>S1IF-11-01</td>
+        </tr>
+
+        <tr>
+            <td>Fahreza</td>
+            <td>2311102191</td>
+            <td>S1IF-11-01</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table width=”80%” height=”50%” border="10">
+        <tr>
+            <th rowspan="2">Nama Lengkap</th>
+            <th colspan="2">Gelar Pendidikan</th>
+            <th rowspan="2">Age</th>
+        </tr>
+
+        <tr>
+            <th> Sarjana </th>
+            <th> Magister </th>
+        </tr>
+
+        <tr>
+            <td>Budi</td>
+            <td>S.Kom</td>
+            <td>M.Sc</td>
+            <td>35</td>
+        </tr>
+        
+        <tr>
+            <td>Andi</td>
+            <td>S.SiKom</td>
+            <td>M.T</td>
+            <td>52</td>
+        </tr>
+    </table>
+```
+
+![Image 2](images/image2.png)
+
+### Image
+
+Menampilkan gambar pada halaman web merupakan sebuah improvisasi dalam pembuatan desain sebuah web yang dapat memperindah tampilan website. Tag HTML yang digunakan adalah `<img/>` tag ini tidak memiliki pasangan penutup maka dari itu diakhir tag pembuka ditambahkan garis miring seperti di atas. Terdapat satu atribut wajib yang harus ditambahkan seperti atribut href pada tag Hyperlink yaitu atribut src yang bernilai alamat direktori gambar disimpan.
+
+```html
+<img src="images/images.jpg" width="100px" alt="Dune">
+<p>This is dune cover</p>
+```
+
+![Image 3](images/image3.png)
+
+### Audio / Video Elemen
+
+Sebelum berkembangnya teknologi HTML5, untuk menyisipkan audio atau video, diperlukan sebuah plugin seperti Flash Player namun sekarang dengan HTML5 memiliki tag yang dapat menyisipkan audio atau video ke dalam laman web. Untuk audio menggunakan tag `<audio>` untuk tag pembuka dan `<source>` untuk memanggil url atau alamat direktori file. Sedangkan untuk video menggunakan tag `<video>`.
+
+```html
+    <audio controls>
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the
+        audio element.
+    </audio>
+
+    <video width="400" controls>
+        <source src="mov_bbb.mp4" type="video/mp4">
+        <source src="mov_bbb.ogg" type="video/ogg"> Your browser does not support
+        HTML5 video.
+    </video>
+    
+    <p>
+        Video courtesy of
+        <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
+    </p>
+```
+
+![Image 4](images/image4.png)
+
+### Form
+
+Form pada HTML digunakan sebagai wadah untuk menampung dan mengumpulkan data-data dari pengguna jika diperlukan untuk disimpan dalam sebuah database. Tag dasar untuk pemanggilan form adalah `<form> … </form>` dan diantara tag form tersebut merupakan tempat mendefinisikan elemenelemen yang dibutuhkan form yang akan dibuat nantinya. Atribut utama dari tag form yaitu action, atribut ini bernilai tujuan data akan diolah dengan bahasa pemrograman web saat tombol “Submit” ditekan, selain itu atribut method yang hanya bernilai POST atau GET ini juga sangat dibutuhkan untuk pengolahan data dengan bahasa pemrograman web. Pembahasan lebih lanjut ada pada modul PHP.
+
+<br/>
+
+Elemen html yang biasanya digunakan pada form adalah `<input />`, `<select><option> … </option></select>`, `<textarea> … </textarea>`, `<button> … </button>`.
+
+```html
+<h1>Formulir Pendaftaran Praktikan</h1>
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="nama_id">Nama:</label>
+            <input type="text" name="nama_input" id="nama_id" placeholder="Input Nama" value="Praktikan" readonly>
+        </div>
+        <div class="form-group">
+            <label for="uname_id">Username:</label>
+            <input type="text" name="uname_input" id="uname_id" placeholder="Input Username" value="Praktikum" disabled>
+        </div>
+        <div class="form-group">
+            <label for="password_id">Password:</label>
+            <input type="password" name="password_input" id="password_id" placeholder="Input Password">
+        </div>
+        <div class="form-group">
+            <label for="email_id">Email:</label>
+            <input type="email" name="email_input" id="email_id" placeholder="Input Email">
+        </div>
+        <fieldset>
+            <legend>Jenis Kelamin</legend>
+            <div>
+                <input type="radio" name="jk_input" id="pria" value="Pria">
+                <label for="pria">Pria</label>
+            </div>
+            <div>
+                <input type="radio" name="jk_input" id="wanita" value="Wanita">
+                <label for="wanita">Wanita</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Hobi</legend>
+            <div>
+                <input type="checkbox" name="hobi_input" id="renang" value="Renang">
+                <label for="renang">Renang</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi_input" id="bersepeda" value="Bersepeda">
+                <label for="bersepeda">Bersepeda</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hobi_input" id="memancing" value="Memancing">
+                <label for="memancing">Memancing</label>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label for="jp_id">Jenjang Pendidikan:</label>
+            <select name="jp_input" id="jp_id">
+                <option value="" selected>------Pilih------</option>
+                <option value="D3">Tamat D3</option>
+                <option value="S1">Tamat S1</option>
+                <option value="S2">Tamat S2</option>
+                <option value="S3">Tamat S3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="kritik_saran">Kritik & Saran:</label>
+            <textarea id="kritik_saran" name="kritik_saran" rows="5"></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="button" class="btn-cancel">Cancel</button>
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
+    </form>
+```
+
+![Image 5](images/image5.png)
 
 ## Tugas
 
-### 1. Melakukan setup repository via CLI
+### 1. Buat tampilan table dasar namun harus di tengah layar/center dan tidak boleh menggunakan css atau styling atau apapun it
 
-### Output
+#### Source code
 
-![Output 1](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/task_image1.png)
-Gambar tersebut merupakan proses untuk membuat suatu repositori mulai dari `git init` sampai `git push origin main`. git init merupakan inisialisasi repositori lokal lalu diikuti dengan penambahan file ke repositori, commit, pembuatan branch, clone repositori online lalu yang terakhir push.
-![Output 2](https://raw.githubusercontent.com/grazeza/ABP-Assigment/main/Modul%202/images/task_image2.png)
-Gambar tersebut merupakan contoh output dari command-command sebelumnya. File berhasil disimpan pada repositori online melalui CLI.
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel</title>
+</head>
+
+<body>
+    <!-- Tabel -->
+    <!-- Ditambah atribut align="center" untuk posisi tabel ditengah -->
+    <table align="center" border="5">
+        <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Kelas</th>
+        </tr>
+
+        <tr>
+            <td>Andika Neviantoro</td>
+            <td>2311102167</td>
+            <td>S1IF-11-01</td>
+        </tr>
+
+        <tr>
+            <td>Fahreza Ilham Wicaksono</td>
+            <td>2311102191</td>
+            <td>S1IF-11-01</td>
+        </tr>
+
+        <tr>
+            <td>Andreas Besar Wibowo</td>
+            <td>2311102198</td>
+            <td>S1IF-11-01</td>
+        </tr>
+
+        <tr>
+            <td>Irshad Benaya Fardeca</td>
+            <td>2311102199</td>
+            <td>S1IF-11-01</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+```
+
+#### Output
+
+![Output 1](images/task_image1.png)
+Gambar tersebut merupakan hasil dari kode html sebelumnya. Terdapat tag `<table>` untuk inisialisasi struktur tabel lalu diikuti `<tr>` untuk struktur row atau baris dengan didalamanya ada `<th>` untuk header atau `<td>` untuk data biasa. Agar posisi tabel ditengah tanpa menggunakan css tambahan bisa menggunakan atribut `align="center"`
