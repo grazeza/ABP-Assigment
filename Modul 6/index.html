@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="dark">
 
 <!-- 2311102191 -->
 <!-- FAHREZA ILHAM WICAKSONO -->
@@ -21,70 +21,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        /* Confetti animation */
-        @keyframes confettiFall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes jackpotZoom {
-            0% {
-                transform: scale(0.3) rotate(-5deg);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes flapOpen {
-            0% {
-                transform: translateX(-50%) rotateX(0deg);
-            }
-
-            100% {
-                transform: translateX(-50%) rotateX(-180deg);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        #thrBtn:hover {
-            animation: pulse 0.8s infinite;
-            transform: scale(1.05);
-        }
-
-        .confetti-piece {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            top: -20px;
-            animation: confettiFall linear infinite;
-            border-radius: 2px;
-        }
-    </style>
 </head>
+
+<!-- notif untuk 100.000 -->
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    <div id="thrToast" class="toast text-bg-success border-0">
+        <div class="toast-body fw-semibold">
+            🎉 MasyaAllah! Kamu mendapatkan THR Rp100.000!
+        </div>
+    </div>
+</div>
 
 <body class="bg-light text-dark">
 
@@ -377,17 +323,17 @@
                     onclick="openEnvelope()">
                     <div class="text-success-emphasis fs-1"><i class="bxf bx-envelope-open"></i></div>
                     <h4 class="text-white fw-semibold mt-3 mb-0">Ketuk untuk membuka!</h4>
-                    <p class="text-lead text-white-50">Cihuy ~ 100k ~</p>
+                    <p class="text-lead fst-italic text-white-50">Gold! Gold! Gold!</p>
                 </div>
 
                 <div id="envelopeOpened" class="bg-success-subtle text-center p-5 d-none">
                     <div class="text-success-emphasis fs-1"><i class="bxf bx-currency-note"></i></div>
 
-                    <p class="text-white-50 mt-2 mb-1">THR Ramadan 1447H</p>
+                    <p class="text-white-50 mt-2 mb-1">THR Lebaran 1447H</p>
                     <h1 id="thrAmount" class="text-success-emphasis fw-bold my-2">Rp 0</h1>
                     <p id="thrMessage" class="text-lead text-light-emphasis small mb-4"></p>
 
-                    <button class="btn btn-success btn-sm px-4 fw-semibold" data-bs-dismiss="modal">
+                    <button class="btn btn-success btn-md px-4 fw-semibold" data-bs-dismiss="modal">
                         Alhamdulillah~
                     </button>
                 </div>
@@ -396,13 +342,18 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- library untuk efek confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 
 </html>
 
 <script>
-    const eidDate = new Date("March 20, 2026 00:00:00").getTime(); // bisa diubah
+    // tanggal lebaran
+    const eidDate = new Date("March 20, 2026 00:00:00").getTime();
 
+    // fungsi update countdown
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = eidDate - now;
@@ -424,41 +375,54 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
+    // jumlah thr
     const thrList = [
         { amount: 10000, message: "Kena nggo tuku es teh 😄" },
         { amount: 20000, message: "Alhamdulillah, cihuy! 😊" },
-        { amount: 50000, message: "Wah, rezeki nomplok! ✨" },
-        { amount: 75000, message: "Subhanallah, berkah banget! 🌙" },
-        { amount: 100000, message: "Masya Allah! 🎉" },
+        { amount: 50000, message: "Mayan, nggo tuku bensin! 🛵" },
+        { amount: 75000, message: "Semoga berkah ✨" },
+        { amount: 100000, message: "Pesta Pora! 🎉" },
     ];
 
+    // fungsi untuk membuat probabilitas thr
     function getRandom() {
-        const weights = [40, 30, 18, 9, 3];
-        let r = Math.random() * 100, total = 0;
+        const weights = [40, 30, 18, 9, 3]; // probabilitas sesuai index thr list
+        let random = Math.random() * 100, total = 0;
+
         for (let i = 0; i < weights.length; i++) {
             total += weights[i];
-            if (r < total) return thrList[i];
+            if (random < total) return thrList[i];
         }
+
         return thrList[0];
     }
 
+    // fungsi untuk membuka modal amplop
     function openEnvelope() {
         const pick = getRandom();
-        const fmt = 'Rp ' + pick.amount.toLocaleString('id-ID');
+        const thr = 'Rp ' + pick.amount.toLocaleString('id-ID');
 
-        document.getElementById('thrAmount').textContent = fmt;
+        document.getElementById('thrAmount').textContent = thr;
         document.getElementById('thrMessage').textContent = pick.message;
+
         document.getElementById('envelopeClosed').classList.add('d-none');
         document.getElementById('envelopeOpened').classList.remove('d-none');
 
         if (pick.amount === 100000) {
-            setTimeout(() => {
-                bootstrap.Modal.getInstance(document.getElementById('thrModal')).hide();
-                document.getElementById('jackpotOverlay').classList.remove('d-none');
-            }, 1200);
+            // munculkan toast
+            const toast = new bootstrap.Toast(document.getElementById('thrToast'));
+            toast.show();
+
+            // munculkan confetti
+            confetti({
+                particleCount: 300,
+                spread: 150,
+                origin: { y: 0.6 }
+            });
         }
     }
 
+    // untuk menutup modal
     document.getElementById('thrModal').addEventListener('hidden.bs.modal', () => {
         document.getElementById('envelopeClosed').classList.remove('d-none');
         document.getElementById('envelopeOpened').classList.add('d-none');

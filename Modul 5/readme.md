@@ -102,7 +102,7 @@ Sistem grid pada Bootstrap menggunakan rangkaian container, rows dan column untu
 </div>
 ```
 
-Pertama diawali dengan `<div class=”container”>`. Kemudian buat sebuah baris sebelum mendeklarasikan sebuah kolom dengan menggunakan `<div class=”row”>`. Terakhir buat elemen div dengan mendefinisikan class “col-*-#”. Tanda* dan # mewakili jenis dan ukuran column yang akan digunakan.
+Pertama diawali dengan `<div class=”container”>`. Kemudian buat sebuah baris sebelum mendeklarasikan sebuah kolom dengan menggunakan `<div class=”row”>`. Terakhir buat elemen div dengan mendefinisikan class `col-*-#`. Tanda* dan # mewakili jenis dan ukuran column yang akan digunakan.
 
 ```html
 <div class="container">
@@ -145,7 +145,7 @@ Bootstrap menyediakan class untuk pengaturan style elemen tabel, gambar dan tomb
 menarik.
 
 1. Bootstrap Table
-Tabel pada Bootstrap dipanggil dengan class .table secara default, namun ada beberapa class tambahan yang dapat didefinisikan pada elemen tabel yang lain
+Tabel pada Bootstrap dipanggil dengan class `.table` secara default, namun ada beberapa class tambahan yang dapat didefinisikan pada elemen tabel yang lain
 
 ```html
 <!--Tabel Hover Style -->
@@ -184,7 +184,7 @@ Tabel pada Bootstrap dipanggil dengan class .table secara default, namun ada beb
 ![Image 3](images/image3.png)
 
 2. Bootstrap Image
-Bootstrap dapat menangani desain gambar agar responsif pada setiap perangkat yang menampilkan laman web. Dengan menambahkan class .img-fluid pada elemen tag `<img>` pada HTML maka gambar yang didefinisikan pada laman web akan memiliki ukuran yang responsif menyesuaikan ukuran layar perangkat. Class tersebut mengatur ukuran gambar dengan menyesuaikan ukuran dari parent elementsebagai wadah atau container elemen gambar. Terdapat class .thumbnail yang berguna menjadikan gambar menjadi berukuran kecil dan sedikit memiliki border disekitarnya
+Bootstrap dapat menangani desain gambar agar responsif pada setiap perangkat yang menampilkan laman web. Dengan menambahkan class `.img-fluid` pada elemen tag `<img>` pada HTML maka gambar yang didefinisikan pada laman web akan memiliki ukuran yang responsif menyesuaikan ukuran layar perangkat. Class tersebut mengatur ukuran gambar dengan menyesuaikan ukuran dari parent elementsebagai wadah atau container elemen gambar. Terdapat class `.thumbnail` yang berguna menjadikan gambar menjadi berukuran kecil dan sedikit memiliki border disekitarnya
 
 ```html
 <div class="container mt-3">
@@ -221,7 +221,7 @@ Tampilan button pada elemen HTML dapat dirubah dengan menambahkan beberapa class
 
 ### Bootstrap Form
 
-Bootstrap menyediakan perubahan elemen form pada HTML baik pada segi tata letak tampilan atau tampilan antarmuka elemen-elemen dalam form. Class .form-control digunakan untuk sebagian besar elemen input dalam tag `<form>` untuk memberikan styling yang konsisten. Ada beberapa cara untuk mengatur tata letak tampilan form di Bootstrap:
+Bootstrap menyediakan perubahan elemen form pada HTML baik pada segi tata letak tampilan atau tampilan antarmuka elemen-elemen dalam form. Class `.form-control` digunakan untuk sebagian besar elemen input dalam tag `<form>` untuk memberikan styling yang konsisten. Ada beberapa cara untuk mengatur tata letak tampilan form di Bootstrap:
 
 1. Vertical Form (Default): Ini merupakan tampilan default saat tag form tidak didefinisikan class khusus. Setiap elemen form akan ditampilkan secara vertikal.
 2. Inline Form: Untuk membuat form inline di Bootstrap, Anda dapat menggunakan utility classes tertentu pada container form. Ini akan membuat elemen-elemen form berada dalam satu baris.
@@ -266,6 +266,10 @@ Bootstrap menyediakan perubahan elemen form pada HTML baik pada segi tata letak 
 ```html
 <!DOCTYPE html>
 <html lang="id" data-bs-theme="dark">
+
+<!-- 2311102191 -->
+<!-- FAHREZA ILHAM WICAKSONO -->
+<!-- 👍🏿 -->
 
 <head>
     <meta charset="UTF-8" />
@@ -564,6 +568,10 @@ Bootstrap menyediakan perubahan elemen form pada HTML baik pada segi tata letak 
 ```
 
 #### Penjelasan kode
+
+Pada halaman ramadhan ini saya membuat total 7 section, dimulai dari header, hero, section amalan, section ayat qur'an, section doa, section tips, dan footer. Saya juga menggunakan library icon tambahan untuk dekorasi. Saya menggunakan `data-bs-theme="dark"` pada tag html untuk tema gelap dan menggunakan `bg-light` pada tag body untuk background putih.
+
+Semua section pada dasarnya memiliki skema warna yang sama, maka dari itu kelas dari bootstrap yang digunakan juga sama. Untuk header saya menggunakan kelas `navbar` dari bootstrap dan ditambah `bg-light` `border-bottom` `border-success` untuk warna background putih dan border hijau. Untuk hero saya menggunakan `bg-success-subtle` untuk warna background dengan warna text `text-success-emphasis`. Untuk section amalan dan doa memiliki style yang sama dengan elemen card menggunakan template styling dari bootstrap docs dengan tambahan `bg-success-subtle` `border` `border-success` sebagai warna background dan border hijau dengan warna text menggunakan `text-success-emphasis` dan `text-secondary-emphasis`. Untuk section ayat qur'an memiliki styling warna yang sama dengan section hero dengan tambahan `badge` `bg-light` `text-success` untuk tampilan badge. Untuk section tips memiliki warna background yang sama dengan hero dengan styling card yang mirip seperti section amalan dengan perbedaan pada warna background menggunakan `bg-light`. Dan yang terakhir footer memiliki styling yang sama dengan `navbar`.
 
 #### Output
 

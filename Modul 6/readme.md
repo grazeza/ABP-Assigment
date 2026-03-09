@@ -67,39 +67,38 @@ Javascript, seperti namanya, merupakan bahasa pemrograman scripting. Dan seperti
 
 Seperti kebanyakan bahasa pemrograman lainnya, Javascript memiliki beberapa tipe data untuk dimanipulasi. Seluruh nilai yang ada dalam Javascript selalu memiliki tipe data. Tipe data yang dimiliki oleh Javascript adalah sebagai berikut:
 
-- Number (bilangan)
-- String (serangkaian karakter)
-- Boolean (benar / salah)
-- Object
-- Function (fungsi)
-- Array
-- Date
-- RegExp (regular expression)
-- Null (tidak berlaku / kosong)
-- Undefined (tidak didefinisikan)
+- `Number` (bilangan)
+- `String` (serangkaian karakter)
+- `Boolean` (benar / salah)
+- `Object`
+- `Functio`n (fungsi)
+- `Array`
+- `Date`
+- `RegExp` (regular expression)
+- `Null` (tidak berlaku / kosong)
+- `Undefined` (tidak didefinisikan)
 
 #### Variabel
 
-Seperti pada bahasa pemrograman lainnya, variabel dalam Javascript merupakan sebuah tempat untuk menyimpan data sementara. Variabel dibuat dengan kata kunci var pada Javascript.
+Seperti pada bahasa pemrograman lainnya, variabel dalam Javascript merupakan sebuah tempat untuk menyimpan data sementara. Variabel dibuat dengan kata kunci `var` pada Javascript.
 
 ```js
 var a; // a berisi undefined 
 var nama = "Budi"; // nama berisi "Budi"
 ```
 
-Nilai yang ada di dalam variabel dapat diganti dengan mengisikan nilai baru, dan bahkan dapat diganti tipe 
-datanya juga.
+Nilai yang ada di dalam variabel dapat diganti dengan mengisikan nilai baru, dan bahkan dapat diganti tipe datanya juga.
 
 ```js
 nama = "Anton"; // nama sekarang berisi string "Anton" 
 nama = 1; // nama sekarang berisi integer 1
 ```
 
-Walaupun kemampuan untuk menggantikan tipe data ini sangat memudahkan kita dalam mengembangkan aplikasi, fitur ini harus digunakan dengan sangat hati-hati. Perubahan tipe data yang tidak diperkirakan dengan baik dapat menyebabkan berbagai kesalahan (error) pada program.
+Walaupun kemampuan untuk menggantikan tipe data ini sangat memudahkan kita dalam mengembangkan aplikasi, fitur ini harus digunakan dengan sangat hati-hati. Perubahan tipe data yang tidak diperkirakan dengan baik dapat menyebabkan berbagai kesalahan (`error`) pada program.
 
 #### Array
 
-Array merupakan sebuah tipe data yang digunakan untuk menampung banyak tipe data lainnya. Berbeda dengan tipe data object, array pada Javascript merupakan sebuah tipe khusus. Walaupun memiliki method dan properti, array bukanlah objek, melainkan sebuah tipe yang “mirip objek”. Pembuatan array dalam Javascript dilakukan dengan menggunakan kurung siku ([]):
+Array merupakan sebuah tipe data yang digunakan untuk menampung banyak tipe data lainnya. Berbeda dengan tipe data `object`, array pada Javascript merupakan sebuah tipe khusus. Walaupun memiliki method dan properti, array bukanlah objek, melainkan sebuah tipe yang “mirip objek”. Pembuatan array dalam Javascript dilakukan dengan menggunakan kurung siku (`[]`):
 
 ```js
 var data = ["satu", 2, true];
@@ -136,11 +135,11 @@ gelar; // gelar berisi "Master"
 
 ### Object Orientation pada Javascript
 
-Javascript memiliki dua jenis tipe data utama, yaitu tipe data dasar dan objek. Tipe data dasar pada Javascript adalah angka (`numbers`), rentetan karakter (`strings`), boolean (`true` dan `false`), `null`, dan `undefined`. Nilai-nilai selain tipe data dasar secara otomatis dianggap sebagai objek. Objek dalam Javascript didefinisikan sebagai mutable properties collection, yang artinya adalah sekumpulan properti (ciri khas) yang dapat berubah nilainya. Karena nilai-nilai selain tipe data dasar merupakan objek, maka pada Javascript sebuah Array adalah objek. Fungsi adalah objek dan Regular expression juga merupakan objek.
+Javascript memiliki dua jenis tipe data utama, yaitu tipe data dasar dan objek. Tipe data dasar pada Javascript adalah angka (`numbers`), rentetan karakter (`strings`), boolean (`true` dan `false`), `null`, dan `undefined`. Nilai-nilai selain tipe data dasar secara otomatis dianggap sebagai objek. Objek dalam Javascript didefinisikan sebagai `mutable properties collection`, yang artinya adalah sekumpulan properti (ciri khas) yang dapat berubah nilainya. Karena nilai-nilai selain tipe data dasar merupakan objek, maka pada Javascript sebuah Array adalah objek. Fungsi adalah objek dan Regular expression juga merupakan objek.
 
 #### Pembuatan Object pada Javascript
 
-Notasi pembuatan objek pada Javascript sangat sederhana, yaitu sepasang kurung kurawal yang membungkus properti. Notasi pembuatan objek ini dikenal dengan nama object literal. Object literal dapat digunakan kapanpun pada ekspresi Javascript yang valid. Sebuah objek dapat menyimpan banyak properti, dan setiap properti dipisahkan dengan tanda koma (,).
+Notasi pembuatan objek pada Javascript sangat sederhana, yaitu sepasang kurung kurawal yang membungkus properti. Notasi pembuatan objek ini dikenal dengan nama object literal. Object literal dapat digunakan kapanpun pada ekspresi Javascript yang valid. Sebuah objek dapat menyimpan banyak properti, dan setiap properti dipisahkan dengan tanda koma (`,`).
 
 ```js
 var objek_kosong = {}; 
@@ -170,8 +169,7 @@ var mobil = { nama: "Mobil",
 jumlahBan: 4 };
 ```
 
-Kita dapat langsung menurunkan objek tersebut dengan menggunakan fungsi Object.create seperti 
-berikut:
+Kita dapat langsung menurunkan objek tersebut dengan menggunakan fungsi `Object.create` seperti berikut:
 
 ```js
 var truk = Object.create(mobil); 
@@ -179,7 +177,7 @@ var truk = Object.create(mobil);
 
 ### Function pada Javascript
 
-Sebuah fungsi membungkus satu atau banyak perintah. Setiap kali fungsi dipanggil, maka perintahperintah yang ada di dalam fungsi tersebut dijalankan. Secara umum fungsi digunakan untuk penggunaan kembali kode (code reuse) dan penyimpanan informasi (information hiding). Implementasi fungsi kelas pertama juga memungkinkan penggunaan fungsi sebagai unit-unit yang dapat dikombinasikan, seperti layaknya sebuah lego. Dukungan terhadap pemrograman berorientasi objek juga berarti fungsi dapat digunakan untuk memberikan perilaku tertentu dari sebuah objek.
+Sebuah fungsi membungkus satu atau banyak perintah. Setiap kali fungsi dipanggil, maka perintahperintah yang ada di dalam fungsi tersebut dijalankan. Secara umum fungsi digunakan untuk penggunaan kembali kode (`code reuse`) dan penyimpanan informasi (`information hiding`). Implementasi fungsi kelas pertama juga memungkinkan penggunaan fungsi sebagai unit-unit yang dapat dikombinasikan, seperti layaknya sebuah lego. Dukungan terhadap pemrograman berorientasi objek juga berarti fungsi dapat digunakan untuk memberikan perilaku tertentu dari sebuah objek.
 
 #### Pembuatan Fungsi pada Javascript
 
@@ -205,7 +203,7 @@ function tambah(a, b) {
 tambah(3, 6)
 ```
 
-Fungsi akan mengembalikan nilai ketika kata kunci return ditemukan. Pengembalian nilai fungsi dapat dilakukan kapanpun, dan fungsi akan segera berhenti ketika kata kunci return ditemukan. Sebuah ekspresi dapat juga diberikan langsung kepada keyword return, dan ekspresi tersebut akan dijalankan sebelum nilai dikembalikan. Hal ini berarti fungsi tambah maupun naikkan yang sebelumnya bisa disederhanakan dengan tidak lagi menyimpan nilai di variabel hasil terlebih dahulu.
+Fungsi akan mengembalikan nilai ketika kata kunci `return` ditemukan. Pengembalian nilai fungsi dapat dilakukan kapanpun, dan fungsi akan segera berhenti ketika kata kunci return ditemukan. Sebuah ekspresi dapat juga diberikan langsung kepada keyword return, dan ekspresi tersebut akan dijalankan sebelum nilai dikembalikan. Hal ini berarti fungsi tambah maupun naikkan yang sebelumnya bisa disederhanakan dengan tidak lagi menyimpan nilai di variabel hasil terlebih dahulu.
 
 ### Pengenalan jQuery
 
@@ -237,6 +235,10 @@ jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, 
 <!DOCTYPE html>
 <html lang="id" data-bs-theme="dark">
 
+<!-- 2311102191 -->
+<!-- FAHREZA ILHAM WICAKSONO -->
+<!-- 👍🏿 -->
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -255,6 +257,15 @@ jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+<!-- notif untuk 100.000 -->
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    <div id="thrToast" class="toast text-bg-success border-0">
+        <div class="toast-body fw-semibold">
+            🎉 MasyaAllah! Kamu mendapatkan THR Rp100.000!
+        </div>
+    </div>
+</div>
+
 <body class="bg-light text-dark">
 
     <!-- navbar -->
@@ -264,6 +275,10 @@ jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, 
                 <i class="bxf bx-moon-stars"></i>
                 Ramadan 1447 H
             </a>
+
+            <div class="ms-auto text-success fw-semibold">
+                Idul Fitri: <span id="eidCountdown">Loading...</span>
+            </div>
         </div>
     </nav>
 
@@ -290,6 +305,13 @@ jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, 
                 <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
                 <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
                 <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+            </div>
+
+            <div class="mt-4">
+                <button type="button" class="btn btn-success btn-lg fw-bold px-4 py-2 shadow" id="thr-btn"
+                    data-bs-toggle="modal" data-bs-target="#thrModal">
+                    <i class="bxf bx-clover text-light-emphasis me-1 fs-5"></i> Saya Merasa Beruntung!
+                </button>
             </div>
         </div>
     </div>
@@ -527,13 +549,126 @@ jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, 
         </div>
     </footer>
 
+    <!-- THR Modal -->
+    <div class="modal fade" id="thrModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 overflow-hidden shadow-lg">
+                <div id="envelopeClosed" class="bg-success-subtle text-center p-5" style="cursor: pointer;"
+                    onclick="openEnvelope()">
+                    <div class="text-success-emphasis fs-1"><i class="bxf bx-envelope-open"></i></div>
+                    <h4 class="text-white fw-semibold mt-3 mb-0">Ketuk untuk membuka!</h4>
+                    <p class="text-lead fst-italic text-white-50">Gold! Gold! Gold!</p>
+                </div>
+
+                <div id="envelopeOpened" class="bg-success-subtle text-center p-5 d-none">
+                    <div class="text-success-emphasis fs-1"><i class="bxf bx-currency-note"></i></div>
+
+                    <p class="text-white-50 mt-2 mb-1">THR Lebaran 1447H</p>
+                    <h1 id="thrAmount" class="text-success-emphasis fw-bold my-2">Rp 0</h1>
+                    <p id="thrMessage" class="text-lead text-light-emphasis small mb-4"></p>
+
+                    <button class="btn btn-success btn-md px-4 fw-semibold" data-bs-dismiss="modal">
+                        Alhamdulillah~
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- library untuk efek confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 
 </html>
+
+<script>
+    // tanggal lebaran
+    const eidDate = new Date("March 20, 2026 00:00:00").getTime();
+
+    // fungsi update countdown
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = eidDate - now;
+
+        if (distance < 0) {
+            document.getElementById("eidCountdown").innerHTML = "Selamat Idul Fitri!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("eidCountdown").innerHTML =
+            days + "h " + hours + "j " + minutes + "m " + seconds + "d";
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // jumlah thr
+    const thrList = [
+        { amount: 10000, message: "Kena nggo tuku es teh 😄" },
+        { amount: 20000, message: "Alhamdulillah, cihuy! 😊" },
+        { amount: 50000, message: "Mayan, nggo tuku bensin! 🛵" },
+        { amount: 75000, message: "Semoga berkah ✨" },
+        { amount: 100000, message: "Pesta Pora! 🎉" },
+    ];
+
+    // fungsi untuk membuat probabilitas thr
+    function getRandom() {
+        const weights = [40, 30, 18, 9, 3]; // probabilitas sesuai index thr list
+        let random = Math.random() * 100, total = 0;
+
+        for (let i = 0; i < weights.length; i++) {
+            total += weights[i];
+            if (random < total) return thrList[i];
+        }
+
+        return thrList[0];
+    }
+
+    // fungsi untuk membuka modal amplop
+    function openEnvelope() {
+        const pick = getRandom();
+        const thr = 'Rp ' + pick.amount.toLocaleString('id-ID');
+
+        document.getElementById('thrAmount').textContent = thr;
+        document.getElementById('thrMessage').textContent = pick.message;
+
+        document.getElementById('envelopeClosed').classList.add('d-none');
+        document.getElementById('envelopeOpened').classList.remove('d-none');
+
+        if (pick.amount === 100000) {
+            // munculkan toast
+            const toast = new bootstrap.Toast(document.getElementById('thrToast'));
+            toast.show();
+
+            // munculkan confetti
+            confetti({
+                particleCount: 300,
+                spread: 150,
+                origin: { y: 0.6 }
+            });
+        }
+    }
+
+    // untuk menutup modal
+    document.getElementById('thrModal').addEventListener('hidden.bs.modal', () => {
+        document.getElementById('envelopeClosed').classList.remove('d-none');
+        document.getElementById('envelopeOpened').classList.add('d-none');
+    });
+</script>
 ```
 
 #### Penjelasan kode
+
+Untuk membuat fitur menampilkan thr saya menggunakan modal yang berperan seperti amplop dan nantinya akan muncul ketika suatu button di klik. Modal menggunakan format styling dari bootstrap dengan tambahan dua `div` khusus yang akan menentukan state, `div` pertama menggunakan class `envelopeClosed` ini adalah keadaan dimana amplop belum dibuka. Untuk berganti state saya menambahkan atribut `onClick` pada div agar ketika diklik menjalankan fungsi openEnvelope() pada javascript. Fungsi tersebut akan meng-generate jumlah thr dan menampilkanya pada html. Fungsi untuk generate thr dinamakan `getRandom()`, di dalam fungsi tersebut akan melakukan pemilihan acak berdasarkan probabilitas (pada variabel `const weights`) dari thr list (pada array `const thrList`).
+
+Untuk menampilkan div dengan class `envelopeOpened` digunakan metode `classList.add('nama-kelas')` dan `classList.remove('nama-kelas')` untuk menghilangkan div `envelopeClosed`. Dari thr list terdapat jumlah terbesar yang bisa muncul maka ditambahkan efek tambahan ketika mendapatkan jumlah tersebut dengan tambahan `toast` dari bootstrap dan efek confetti dari library tambahan `confetti.browser.min.js`
 
 #### Output
 

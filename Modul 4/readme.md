@@ -71,7 +71,7 @@ Eksternal Style Sheet merupakan cara menyisipkan atau mendefinisikan CSS ke dala
 </head>
 ```
 
-2. Internal Style Sheet
+1. Internal Style Sheet
 Internal Style Sheet merupakan cara menyisipkan atau mendefinisikan CSS ke dalam HTML dengan menggunakan tag `<style> </style>` pada elemen `<head></head>`. Biasanya digunakan ketika satu laman membutuhkan style CSS yang berbeda dari yang telah dipanggil pada Eksternal Style Sheet
 
 ```html
@@ -88,7 +88,7 @@ Internal Style Sheet merupakan cara menyisipkan atau mendefinisikan CSS ke dalam
 </head>
 ```
 
-3. Inline Style
+1. Inline Style
 
 Inline Style menyisipkan atau mendefinisikan CSS ke dalam HTML dengan menambahkan atribut stylepada elemen yang ingin ditambahkan CSS. Biasanya digunakan hanya untuk satu elemen yangmembutuhkan style CSS yang berbeda dari yang telah didefinisikan pada Internal Style atau EksternalStyle.
 
@@ -274,6 +274,10 @@ Span merupakan elemen HTML yang dapat menangani perubahan konten elemen pada sat
 <!DOCTYPE html>
 <html lang="id">
 
+<!-- 2311102191 -->
+<!-- FAHREZA ILHAM WICAKSONO -->
+<!-- 👍🏿 -->
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -354,6 +358,10 @@ Pada halaman ini digunakan dua library tambahan yang hanya berfungsi untuk menye
 ##### CSS
 
 ```css
+/* 2311102191 */
+/* FAHREZA ILHAM WICAKSONO */
+/* 👍🏿 */
+
 /* Variabel warna */
 :root {
     --red-1: #b71c1c;
