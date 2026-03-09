@@ -13,7 +13,7 @@
 
   <br />
 
-  <img src="assets/logo.jpeg" alt="Logo" width="300">
+  <img src="images/logo.jpeg" alt="Logo" width="300">
 
   <br />
   <br />
@@ -41,7 +41,7 @@
     <strong> Apri Pandu Wicaksono </strong> <br>
     <strong>Rangga Pradarrell Fathi</strong>
   <br />
-  
+
   <h3>LABORATORIUM HIGH PERFORMANCE
  <br>FAKULTAS INFORMATIKA <br>UNIVERSITAS TELKOM PURWOKERTO <br>2026</h3>
 </div>
