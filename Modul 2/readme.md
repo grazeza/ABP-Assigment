@@ -24,7 +24,7 @@ Perintah `git init` akan membuat sebuah direktori bernama .git di dalam proyek y
 
 #### 2. Menambahkan isi repositori
 
-Untuk menambahkan suatu file ke dalam repositori, dapat langsung menambahkan file ke dalam folder projek yang telah dibuat, sebelum file benar benar tersimpan harus melakukan command h git `commit -m “pesan commit”`.
+Untuk menambahkan suatu file ke dalam repositori, dapat langsung menambahkan file ke dalam folder projek yang telah dibuat, sebelum file benar benar tersimpan harus melakukan command `git commit -m “pesan commit”`.
 
 #### 3. Membuat repositori online
 
