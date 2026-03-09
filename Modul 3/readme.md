@@ -298,7 +298,7 @@ Elemen html yang biasanya digunakan pada form adalah `<input />`, `<select><opti
 
 ## Tugas
 
-### 1. Buat tampilan table dasar namun harus di tengah layar/center dan tidak boleh menggunakan css atau styling atau apapun it
+### 1. Buat tampilan table dasar namun harus di tengah layar/center dan tidak boleh menggunakan css atau styling atau apapun itu
 
 #### Source code
 
