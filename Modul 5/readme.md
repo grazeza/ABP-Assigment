@@ -1,287 +1,570 @@
-# <h1 class="center"> Laporan Praktikum Modul Bootstrap </h1>
-Fahreza Ilham Wicaksono
+<div align="center">
+  <br />
+
+  <h1>LAPORAN PRAKTIKUM <br>
+  APLIKASI BERBASIS PLATFORM
+  </h1>
+
+  <br />
+
+  <h3>MODUL IV <br>
+  BOOTSTRAP
+  </h3>
+
+  <br />
+
+  <img src="images/logo.jpeg" alt="Logo" width="300">
+
+  <br />
+  <br />
+  <br />
+
+  <h3>Disusun Oleh :</h3>
+
+  <p>
+    <strong>Fahreza Ilham Wicaksono</strong><br>
+    <strong>2311102191</strong><br>
+    <strong>S1 IF-11-REG01</strong>
+  </p>
+
+  <br />
+
+  <h3>Dosen Pengampu :</h3>
+
+  <p>
+    <strong>Dimas Fanny Hebrasianto Permadi, S.ST., M.Kom</strong>
+  </p>
+  
+  <br />
+  <br />
+    <h4>Asisten Praktikum :</h4>
+    <strong> Apri Pandu Wicaksono </strong> <br>
+    <strong>Rangga Pradarrell Fathi</strong>
+  <br />
+
+  <h3>LABORATORIUM HIGH PERFORMANCE
+ <br>FAKULTAS INFORMATIKA <br>UNIVERSITAS TELKOM PURWOKERTO <br>2026</h3>
+</div>
+
+<hr>
 
 ## Dasar Teori
-Tipe data merpukan pengelompokan data berdasarkan ciri-cirinya. Jenis ini mempunya fungsi yang berbeda-beda yang digunakan oleh compiler untuk mengetahui bagaimana sebuah data digunakan. Ada 3 tipe data yaitu primitif, abstak, dan koleksi.
-### - Tipe data Primitif
-Tipe data primitif merupakan tipe data yang sudah ditentukan oleh program c++ itu sendiri. Contohnya yaitu int, float, string, boolean dan char.
-### - Tipe data Abstrak
-Tipe data abstark adalah tipe data yang dibuat atau diciptakan oleh programmer itu sendiri.
-### - Tipe data Koleksi
-Tipe data Koleksi merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan di suatu variabel. Contohnya array, vector, dan map.
 
-## Guided
-### 1. Tipe data primitf
-```c++
-#include <iostream>
+### Pengenalan Bootstrap
 
-using namespace std;
+Bootstrap merupakan sebuah front-end framework gratis untuk pengembangan antar muka web yang lebih cepat dan lebih mudah. Dikembangkan oleh Mark Otto dan Jacom Thornton di Twitter dan dirilis sebagai produk open source pada Agustus 2011 di GitHub. Bootstrap mencakup template desain berbasis HTML dan CSS untuk tipografi, form, button, navigasi, modal, image carousells dan masih banyak lagi, serta terdapat opsional plugin JavaScript. Selain itu, Bootstrap memiliki kemampuan untuk membuat desain responsif yang secara otomatis menyesuaikan diri agar terlihat baik di segala perangkat, mulai dari perangkat ponsel hingga desktop pc.
 
-int main()
-{
-    char op;
-    float num1, num2;
-    cout << "Masukkan jenis operator: ";
-    cin >> op;
-    cout << "Iputkan angka pertama: ";
-    cin >> num1;
-    cout << "Iputkan angka kedua: ";
-    cin >> num2;
+#### Pemasangan Bootstrap
 
-    switch (op)
-    {
-    case '+':
-        cout << num1 + num2;
-        break;
-    case '-':
-        cout << num1 - num2;
-        break;
-    case '*':
-        cout << num1 * num2;
-        break;
-    case '/':
-        cout << num1 / num2;
-        break;
-    default:
-        cout << "Error! operator is not valid" << endl;
-    }
+Bootstrap merupakan produk yang mengusung konsep open source sehingga untuk pemasangannya dapat
+dilakukan dengan beberapa cara sebagai berikut:
 
-    return 0;
-}
+- a. Unduh di [Website Bootstrap](http://getbootstrap.com), selanjutnya pasang pada project web kalian seperti memanggil External Style Sheet pada CSS.
+- b. Memanggil Bootstrap CDN (Content Delivery Network), sehingga kita tidak perlu mengunduh dan memasangnya pada laman website, hanya memanggil source dari Bootstrap. Cara ini membutuhkan koneksi internet untuk menghasilkan perubahan tampilan CSS
+
+```html
+<!-- Pemanggilan Bootstrap dengan CDN -->
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-
+9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+crossorigin="anonymous">
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-
+2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<!-- JavaScript -->
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+crossorigin="anonymous"></script>
 ```
-Kode diatas merupakan implementasi dari penggunaan tipe data primitif `float`, yang berfungsi seperti kalkulator sederhana.
 
-### 2. Tipe data abstark
-```c++
-#include <iostream>
-#include <stdio.h>
+### Bootstrap Container
 
-using namespace std;
+Bootstrap container adalah elemen paling dasar yang dibutuhkan dalam layouting menggunakan Bootstrap Grid. Container berbentuk class CSS yang sisipkan pada elemen HTML `<div>`. Terdapat dua class container pada Bootstrap yang dapat dipilih yaitu:
 
-// struct
-struct Mahasiswa
-{
-    const char *name;
-    const char *address;
-    int age;
-};
+- Class `.container` menyediakan container yang responsive dengan lebar yang tetap.
+- Class `.container-fluid` menyediakan container dengan lebar yang penuh mencakup seluruh area pandang
 
-int main()
-{
-    // inisialisasi struct
-    struct Mahasiswa mhs1, mhs2;
+### Bootstrap Grid
 
-    // pengisian value
-    mhs1.name = "Fahreza";
-    mhs1.address = "Ketenger";
-    mhs1.age = 18;
+Sistem grid pada Bootstrap menggunakan rangkaian container, rows dan column untuk tata letak dan keselarasan elemen atau konten. Dibangun dengan flexbox dan sangat responsif terhadap perangkat yang digunakan untuk menampilkan laman web. Struktur dasar grid pada Bootstrap sebagai berikut.
 
-    mhs2.name = "Evan";
-    mhs2.address = "Semaya";
-    mhs2.age = 19;
-
-    // mencetak isi struct
-    printf("## Mahasiswa 1 ##\n");
-    printf("Nama: %s\n", mhs1.name);
-    printf("Alamat: %s\n", mhs1.address);
-    printf("Umur: %d\n", mhs1.age);
-    printf("## Mahasiswa 2 ##\n");
-    printf("Nama: %s\n", mhs2.name);
-    printf("Alamat: %s\n", mhs2.address);
-    printf("Umur: %d\n", mhs2.age);
-
-    return 0;
-}
+```html
+<div class="row"> 
+ <div class="col-*-#"></div> 
+ <div class="col-*-#"></div> 
+</div> 
+<div class="row"> 
+ <div class="col-*-#"></div> 
+ <div class="col-*-#"></div> 
+ <div class="col-*-#"></div> 
+</div>
 ```
-Kode diatas merupakan implementasi tipe data abstak yaitu `struct`, yang berfungsi untuk menyimpan tipe data yang berbeda di suatu variabel.
 
-### 3. Tipe data koleksi
-```c++
-#include <iostream>
+Pertama diawali dengan `<div class=”container”>`. Kemudian buat sebuah baris sebelum mendeklarasikan sebuah kolom dengan menggunakan `<div class=”row”>`. Terakhir buat elemen div dengan mendefinisikan class “col-*-#”. Tanda* dan # mewakili jenis dan ukuran column yang akan digunakan.
 
-using namespace std;
+```html
+<div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-4 border border-dark rounded">.col-12 .col-md-8 .col-lg-4</div>
+            <div class="col-6 col-md-4 col-lg-8 border border-dark rounded">.col-6 .col-md-4 .col-lg-8</div>
+        </div>
 
-int main()
-{
-    // deklarasi dan inisalisasi array
-    int nilai[5];
-    nilai[0] = 75;
-    nilai[1] = 80;
-    nilai[2] = 85;
-    nilai[3] = 60;
-    nilai[4] = 90;
+        <div class="row">
+            <div class="col-6 col-md-4 border border-dark rounded">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4 border border-dark rounded">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4 border border-dark rounded">.col-6 .col-md-4</div>
+        </div>
 
-    // mencetak array
-    cout << "Isi array pertama :" << nilai[0] << endl;
-    cout << "Isi array kedua :" << nilai[1] << endl;
-    cout << "Isi array ketiga :" << nilai[2] << endl;
-    cout << "Isi array keempat :" << nilai[3] << endl;
-    cout << "Isi array kelima :" << nilai[4] << endl;
-    return 0;
-}
+        <div class="row">
+            <div class="col-6 border border-dark rounded">.col-6</div>
+            <div class="col-6 border border-dark rounded">.col-6</div>
+        </div>
+    </div>
 ```
-Kode diatas merupakan implementasi tipe data koleksi `array`, yang berfungsi untuk menyimpan berbagai data dengan tipe data yang sama di suatu variabel.
 
-## Unguided
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas. Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif! 
-``` c++
-#include <iostream>
+![Image 1](images/image1.png)
 
-using namespace std;
+### Text Style
 
-// fungsi cek even or odd number
-void JenisAngka(int angka)
-{
-    if (angka % 2 == 0) // jika habis dibagi 2
-    {
-        cout << "Amgka yang anda inputkan merupakan angka genap" << endl;
-    }
-    else
-    {
-        cout << "Amgka yang anda inputkan merupakan angka ganjil" << endl;
-    }
-}
+Ada beberapa text style yang disediakan oleh Bootstrap contohnya  `.text-left`, `.text-right`, `.text-center`, `.text-uppercase`, `.text-lowercase`, `fw-bold`, dan lain-lain.
 
-// fungsi banfing angka 1 dan angka 2
-void Bandingkan(int angka1, int angka2)
-{
-    if (angka1 > angka2)
-    {
-        cout << "Angka pertama lebih besar daripada angka kedua" << endl;
-    }
-    else if (angka1 < angka2)
-    {
-        cout << "Angka kedua lebih besar daripada angka pertama" << endl;
-    }
-    else if (angka1 == angka2)
-    {
-        cout << "Angka pertama sama dengan angka kedua" << endl;
-    }
-}
-
-int main()
-{
-    cout << "Fungsi Pertama" << endl;
-    JenisAngka(789);
-    JenisAngka(234);
-
-    cout << "Fungsi Kedua" << endl;
-    Bandingkan(3, 7);
-    Bandingkan(123, 90);
-    Bandingkan(4,4);
-}
+```html
+<p class="text-uppercase fw-bold fst-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
+        exercitationem, ullam
+        molestiae adipisci, ipsa soluta incidunt atque dicta sunt minima quibusdam magni blanditiis enim doloribus
+        temporibus alias, in hic eum?</p>
 ```
-### Output
-![Output 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output1.png)
-Kode diatas adalah contoh penggunaan dari tipe data primitif. Fungsi pertama digunakan untuk mengecek angka apakah ganjil atau genap sedangkan fungsi kedua untuk membandingkan antara angka pertama atau kedua. 
-Kesimpulanya adalah tipe data ini merupakan tipe data default, yang mana tidak ada fleksibilitas dalam penggunaanya namun tipe data ini yang menjadi pondasi dari seluruh program c++.
-### Full code Screenshot
-![Code 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code1.png)
 
-### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
-``` c++
-#include <iostream>
-#include <stdio.h>
+![Image 2](images/image2.png)
 
-using namespace std;
+### Bootstrap Table, Image & Button
 
-// inisialisasi class
-class Game
-{
-public:
-    string nama;
-    string genre;
-    int tahun;
-    string size;
+Bootstrap menyediakan class untuk pengaturan style elemen tabel, gambar dan tombol menjadi lebih
+menarik.
 
-    // fungsi menampilkan info class
-    void displayInfo()
-    {
-        cout << "Game " << nama << " dengan genre " << genre << " di publish tahun " << tahun << " dengan size " << size << endl;
-    }
-};
+1. Bootstrap Table
+Tabel pada Bootstrap dipanggil dengan class .table secara default, namun ada beberapa class tambahan yang dapat didefinisikan pada elemen tabel yang lain
 
-// inisialisasi struct
-struct Hero
-{
-    const char *name;
-    const char *role;
-    string type;
-};
-
-int main()
-{
-    // deklarasi class
-    Game game1;
-
-    game1.nama = "Dark Souls";
-    game1.genre = "RPG Linear";
-    game1.tahun = 2018;
-    game1.size = "9,2 GB";
-    game1.displayInfo();
-
-    // deklarasi struct
-    Hero hero1;
-    hero1.name = "John Dark Soul";
-    hero1.role = "Sorcerer";
-    hero1.type = "DPS";
-
-    cout << endl;
-    cout << "Karakter" << endl;
-    cout << "Name: " << hero1.name << endl;
-    cout << "Role: " << hero1.role << endl;
-    cout << "Type: " << hero1.type << endl;
-
-    return 0;
-}
+```html
+<!--Tabel Hover Style -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">NIM</th>
+                <th scope="col">Kelas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Fahreza</td>
+                <td>2311102191</td>
+                <td>IF-11-01</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Andika</td>
+                <td>2311102167</td>
+                <td>IF-11-01</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Irshad</td>
+                <td>2311102199</td>
+                <td>IF-11-01</td>
+            </tr>
+        </tbody>
+    </table>
 ```
-### Output
-![Output 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output2.png)
-Class merupakan tipe data defaultnya adalah private, jadi jika objek anggota dari class itu sendiri ingin dipublikasikan, maka harus menyertakan public di potongan kode tersebut Sedangakan Struct atau structure merupakan tipe data yang menyimpan beberapa data dengan default public, Struktur bermanfaat untuk mengelompokan sejumlah data dengan tipe yang berlainan[1]. Kode diatas merupakan contoh penggunaan class dan struct, pada class menyertakan public agar kode bisa diakses di int main dan pada struct karena defaultnya public jadi langsung inisialisasi variabel.
-### Full code Screenshot
-![Code 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code2.png)
 
-### 3. Buat dan jelaskan program menggunakan fungsi map dan jelaskan perbedaan dari array dengan map
-```c++
-#include <iostream>
-#include <map>
+![Image 3](images/image3.png)
 
-using namespace std;
+2. Bootstrap Image
+Bootstrap dapat menangani desain gambar agar responsif pada setiap perangkat yang menampilkan laman web. Dengan menambahkan class .img-fluid pada elemen tag `<img>` pada HTML maka gambar yang didefinisikan pada laman web akan memiliki ukuran yang responsif menyesuaikan ukuran layar perangkat. Class tersebut mengatur ukuran gambar dengan menyesuaikan ukuran dari parent elementsebagai wadah atau container elemen gambar. Terdapat class .thumbnail yang berguna menjadikan gambar menjadi berukuran kecil dan sedikit memiliki border disekitarnya
 
-int main()
-{
-    // insialisasi dan deklarasi map
-    map<string, int> dataDamage;
+```html
+<div class="container mt-3">
+        <h2>Thumbnail & Fluid</h2>
 
-    // isi value map
-    dataDamage["Strength"] = 650;
-    dataDamage["Dexterity"] = 500;
-    dataDamage["Intellegence"] = 800;
-    dataDamage["Faith"] = 700;
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/Timoth%C3%A9e_Chalamet_as_Paul_Atreides_%28Dune_2021%29.jpg" alt="" class="img-thumbnail"
+            width="300px">
 
-    cout << "Informasi Damage Build" << endl;
-    
-    // perulangan range based loop untuk menampilkan map
-    for (auto& entry : dataDamage) {
-        cout << "Build " << entry.first << " Damage: " << entry.second << endl;
-    }
-
-    return 0;
-}
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/Timoth%C3%A9e_Chalamet_as_Paul_Atreides_%28Dune_2021%29.jpg" alt="" class="img-fluid"
+            width="300px">
+    </div>
 ```
-### Output
-![Output 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output3.png)
-Kode diatas merupakan penggunaan map dalam c++, dimulai dari insialisasi map beserta tipe datanya kemudian pengisian map pada int main lalu terakhir dengan perulangan for range based loop dengan menggunakan `auto` mencetak map tersebut. Perbedaan antara array dan map terletak pada tipe data indeks pada map yang memungkinkan untuk berupa tipe data selain integer[2].
-### Full code Screenshot
-![Code 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code3.png)
 
-## Kesimpulan
-Tipe data adalah klasifikasi atau pengelompokan data berdasarkan sifat atau ciri-ciri tertentu. Setiap jenis tipe data memiliki fungsi yang berbeda-beda yang memungkinkan programmer untuk lebih leluasa membuat atau menciptakan suatu logika program yang lebih kompleks dan efisien juga digunakan oleh compiler untuk memahami cara data tersebut digunakan dalam program. Ada tiga tipe data utama, yaitu primitif, abstak, dan koleksi. 
-- Tipe data primitif merupakan tipe data default yang menjadi pondasi
-- Tipe data abstrak merupakan tipe data yang dibuat oleh programmer yang biasa digunakan di pemograman OOP.
-- Tipe data kolektif merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan.
+![Image 4](images/image4.png)
 
-## Referensi
-[1] Akbar, Ramadhani. Struct dan Class. boltremjaya.wordpress.com; 2013. https://boltremjaya.wordpress.com/2013/09/16/struct-dan-class/
+3. Bootstrap Button
 
-[2] Adam, Rian. TUTORIAL STRUKTUR DATA MAP PADA C++. structilmy.com; 2020. https://structilmy.com/blog/2020/08/08/tutorial-struktur-data-map-pada-c/
+Tampilan button pada elemen HTML dapat dirubah dengan menambahkan beberapa class untuk button oleh Bootstrap. Bootstrap membuat tampilan button menjadi lebih menarik dan memberikan user experience yang baik. Class yang digunakan secara default adalah `.btn` namun dengan disertai class lain  untuk memberikan perubahan warna dan ukuran button.
+
+```html
+<div class="container">
+        <h4>Button Styles</h4>
+        <button type="button" class="btn btn-secondary btn-md">Secondary</button>
+        <button type="button" class="btn btn-primary btn-lg">Primary</button>
+        <button type="button" class="btn btn-success btn-block">Success</button>
+        <button type="button" class="btn btn-info btn-xs">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+    </div>
+```
+
+![Image 5](images/image5.png)
+
+### Bootstrap Form
+
+Bootstrap menyediakan perubahan elemen form pada HTML baik pada segi tata letak tampilan atau tampilan antarmuka elemen-elemen dalam form. Class .form-control digunakan untuk sebagian besar elemen input dalam tag `<form>` untuk memberikan styling yang konsisten. Ada beberapa cara untuk mengatur tata letak tampilan form di Bootstrap:
+
+1. Vertical Form (Default): Ini merupakan tampilan default saat tag form tidak didefinisikan class khusus. Setiap elemen form akan ditampilkan secara vertikal.
+2. Inline Form: Untuk membuat form inline di Bootstrap, Anda dapat menggunakan utility classes tertentu pada container form. Ini akan membuat elemen-elemen form berada dalam satu baris.
+3. Horizontal Form: Untuk membuat form horizontal di Bootstrap, Anda dapat menggunakan sistem grid Bootstrap. Gunakan class .row pada container dan `.col-*` untuk mengatur lebar kolom label dan input.
+
+```html
+<div class="container">
+        <h3>Horizontal form</h3>
+
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="row form-group">
+                <label class="control-label col-sm-2" for="email">Username:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+```
+
+![Image 6](images/image6.png)
+
+## Tugas
+
+### 1. Buat halaman ramadan dan gunakan bootstrap (sebisa mungkin tanpa meggunakan native css full bootstap)
+
+#### Source code
+
+```html
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramadan Mubarak 1447 H</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+
+    <!-- library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-light text-dark">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-white bg-light border-bottom border-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success d-flex align-items-center gap-2" href="#">
+                <i class="bxf bx-moon-stars"></i>
+                Ramadan 1447 H
+            </a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="bg-success-subtle text-center p-5 border-bottom border-success-subtle">
+        <div class="container p-4">
+            <div class="mb-3">
+                <i class="bxf bx-islam text-success-emphasis fs-1"></i>
+            </div>
+
+            <p class="text-success-emphasis text-uppercase fst-italic fw-semibold letter-spacing mb-2">
+                <i class="bxf bx-sparkles-alt me-2"></i>1447 Hijriyyah<i class="bxf bx-sparkles-alt mx-2"></i>
+            </p>
+
+            <h1 class="display-4 fw-bold text-success mb-1">رَمَضَان مُبَارَك</h1>
+            <h2 class="display-5 fw-bold text-white mb-5">Ramadan Mubarak</h2>
+            <p class="lead text-white col-md-6 mx-auto mb-4">
+                Selamat memasuki bulan suci Ramadan. Semoga ibadah kita diterima,
+                dosa-dosa diampuni, dan hati kita semakin dekat kepada Allah SWT.
+            </p>
+
+            <div class="mt-3">
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- amalan -->
+    <div id="amalan" class="bg-white-emphasis p-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success text-uppercase fw-semibold mb-1">
+                    Amalan Utama
+                </p>
+
+                <h3 class="h2 fw-bold text-success mb-0">Pilar Ramadan</h3>
+                <hr class="border-success-subtle opacity-25 col-2 mx-auto mt-3">
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-moon text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Puasa</h4>
+                            <p class="card-text text-secondary-emphasis">Menahan diri dari makan, minum, dan hal yang
+                                membatalkan puasa dari fajar hingga terbenam matahari</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-book-quran text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Tadarus Al-Qur'an</h5>
+                                <p class="card-text text-secondary-emphasis">Memperbanyak membaca dan mengkaji
+                                    Al-Qur'an. Bulan
+                                    Ramadan adalah bulan diturunkannya Al-Qur'an</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-mosque text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Shalat Tarawih</h4>
+                            <p class="card-text text-secondary-emphasis">Shalat sunnah khusus di malam Ramadan,
+                                dilaksanakan berjamaah di masjid setelah shalat Isya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-hand-holding-heart text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Sedekah & Zakat</h4>
+                            <p class="card-text text-secondary-emphasis">Memperbanyak sedekah dan menunaikan zakat
+                                fitrah
+                                sebagai bentuk kepedulian kepada sesama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-hands text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">I'tikaf</h4>
+                            <p class="card-text text-secondary-emphasis">Berdiam diri di masjid, terutama pada 10 malam
+                                terakhir Ramadan untuk meraih Lailatul Qadar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-moon-star text-success-emphasis fs-1 mb-3"></i>
+                            <h5 class="card-title fw-bold text-light-emphasis">Lailatul Qadar</h5>
+                            <p class="card-text text-secondary-emphasis">Malam yang lebih baik dari seribu bulan. Dicari
+                                pada malam ganjil di 10 hari terakhir Ramadan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ayat qur'an -->
+    <div class="bg-success-subtle p-5 border-bottom border-success-subtle">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="bxf bx-quote-left text-success-emphasis fs-1 opacity-50 mb-3"></i>
+                    <p class="text-success-emphasis fw-bold mb-3 fs-1">
+                        شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ
+                    </p>
+
+                    <p class="lead text-light-emphasis fst-italic mb-5">
+                        "Bulan Ramadan adalah (bulan) yang di dalamnya diturunkan Al-Qur'an,
+                        sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai
+                        petunjuk itu dan pembeda (antara yang benar dan yang batil)."
+                    </p>
+
+                    <span class="badge bg-light text-success px-3 py-2 fs-6">
+                        <i class="fa-solid fa-book-quran me-2"></i>QS. Al-Baqarah: 185
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- niat dan doa puasa -->
+    <div id="doa" class="bg-light py-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
+                        <div class="card-body">
+                            <i class="bxf bx-night-light text-success-emphasis fs-2 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Niat Puasa</h4>
+                            <p class="text-success-emphasis mb-3 fs-3">
+                                نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ لِلَّهِ تَعَالَى
+                            </p>
+
+                            <p class="card-text text-secondary-emphasis fst-italic">
+                                "Saya niat berpuasa esok hari untuk menunaikan kewajiban
+                                puasa di bulan Ramadhan karena Allah Ta'ala."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
+                        <div class="card-body">
+                            <i class="bxf bx-moon-crater text-success-emphasis fs-2 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Do'a Berbuka Puasa</h4>
+                            <p class="text-success-emphasis mb-3 fs-3">
+                                اَللّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ
+                            </p>
+
+                            <p class="card-text text-secondary-emphasis fst-italic">
+                                "Ya Allah, untuk-Mu aku berpuasa, kepada-Mu aku beriman,
+                                dan dengan rezeki-Mu aku berbuka."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- tips -->
+    <div class="bg-success-subtle py-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success-emphasis text-uppercase fw-semibold mb-1">
+                    <i class="fa-solid fa-lightbulb me-2"></i>Panduan
+                </p>
+
+                <h3 class="h2 fw-bold text-light-emphasis mb-0">Tips Ramadan Produktif</h3>
+                <hr class="border-success opacity-25 col-2 mx-auto mt-3">
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="bxf bx-fork-knife text-success fs-4 mt-1 flex-shrink-0"></i>
+
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Jaga Asupan Sahur</h6>
+                            <p class="text-secondary mb-0">Konsumsi makanan bergizi dan berserat tinggi agar
+                                energi tahan sepanjang hari.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="fa-solid fa-droplet text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Perbanyak Minum Air</h6>
+                            <p class="text-secondary mb-0">Penuhi kebutuhan cairan antara Maghrib dan Sahur agar
+                                tubuh tidak dehidrasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="bxf bx-biceps text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Tetap Aktif Berolahraga</h6>
+                            <p class="text-secondary mb-0">Olahraga ringan menjelang buka puasa membantu
+                                metabolisme tetap baik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="fa-solid fa-brain text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Kelola Waktu dengan Bijak</h6>
+                            <p class="text-secondary mb-0">Buat jadwal harian agar ibadah, pekerjaan, dan
+                                istirahat bisa berjalan seimbang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-light py-4 border-top border-success-subtle">
+        <div class="container text-center">
+            <p class="text-success fw-bold mb-1">رَمَضَان كَرِيم
+            </p>
+            <p class="text-secondary small text-uppercase mb-3" style="letter-spacing:.25em;">Ramadan Kareem — 1447 H
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <i class="bxf bx-sparkles-alt text-success opacity-50"></i>
+                <i class="bxf bx-moon text-success"></i>
+                <i class="bxf bx-moon-stars text-success fs-5"></i>
+                <i class="bxf bx-moon text-success"></i>
+                <i class="bxf bx-sparkles-alt  text-success opacity-50"></i>
+            </div>
+
+            <p class="text-secondary-emphasis small mb-0">
+                Semoga Ramadan ini membawa berkah, ampunan, dan kebahagiaan untuk kita semua.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+```
+
+#### Penjelasan kode
+
+#### Output
+
+![Output 1](images/task_image1.png)

@@ -612,13 +612,9 @@ body {
 
 ##### Penjelasan kode
 
-Pada file CSS ini digunakan beberapa variabel warna yang didefinisikan pada :root, seperti warna merah (--red-1, --red-2), emas (--gold), dan warna latar kartu (--card-bg). Variabel ini bertujuan agar pengaturan warna menjadi lebih konsisten dan mudah diubah. Struktur styling pada halaman mengikuti tiga bagian utama, yaitu header, main, dan footer. Pada bagian body ditambahkan efek gradient pada `background_color` agar tampilan warna menjadi gradasi.
-
-<br/>
+Pada file CSS ini digunakan beberapa variabel warna yang didefinisikan pada :root, seperti warna merah `--red-1, --red-2`, emas `--gold`, dan warna latar kartu `--card-bg`. Variabel ini bertujuan agar pengaturan warna menjadi lebih konsisten dan mudah diubah. Struktur styling pada halaman mengikuti tiga bagian utama, yaitu header, main, dan footer. Pada bagian body ditambahkan efek gradient pada `background_color` agar tampilan warna menjadi gradasi.
 
 Pada bagian header, elemen `.lanterns` digunakan sebagai container untuk dekorasi lentera yang berada di bagian atas halaman. Setiap lentera memiliki class `.lantern` yang mengatur ukuran, posisi, dan animasi. Untuk menambahkan elemen garis digunakan `.lantern::before` yang artinya akan menambahkan styling sebelum elemen selector terkait. Selain itu, terdapat animasi @keyframes swing yang membuat lentera bergerak seperti mengayun dan ditambahkan delay dengan menggunakan selector `.lantern:nth-child(x)` agar animasi tidak sama setiap lenteranya.
-
-<br/>
 
 Pada bagian main, elemen `.stage` berfungsi sebagai container utama untuk menempatkan kartu ucapan di tengah halaman. Kartu ucapan tersebut menggunakan class `.card` yang memiliki background gradien, `border-radius` untuk membuat sudut elemen tumpul, dan efek bayangan `box-shadow` agar terdapat efek bayangan pada kartu. Di dalam kartu terdapat beberapa elemen tambahan seperti `.decor-top` untuk ikon dekorasi yang memiliki `drop-shadow`, `.title` untuk judul ucapan, `.year` untuk menampilkan tahun Imlek dengan ukuran besar, `.chinese` untuk tulisan Mandarin, `.message` untuk teks ucapan, serta `.year-info` untuk menampilkan informasi tambahan mengenai tahun Imlek yang memiliki tambahan `efek border` dan `box-shadow`.
 
