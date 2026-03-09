@@ -1,287 +1,540 @@
-# <h1 class="center"> Laporan Praktikum Modul JS dan JQuery </h1>
-Fahreza Ilham Wicaksono
+<div align="center">
+  <br />
+
+  <h1>LAPORAN PRAKTIKUM <br>
+  APLIKASI BERBASIS PLATFORM
+  </h1>
+
+  <br />
+
+  <h3>MODUL V <br>
+  JAVASCRIPT & JQUERY
+  </h3>
+
+  <br />
+
+  <img src="images/logo.jpeg" alt="Logo" width="300">
+
+  <br />
+  <br />
+  <br />
+
+  <h3>Disusun Oleh :</h3>
+
+  <p>
+    <strong>Fahreza Ilham Wicaksono</strong><br>
+    <strong>2311102191</strong><br>
+    <strong>S1 IF-11-REG01</strong>
+  </p>
+
+  <br />
+
+  <h3>Dosen Pengampu :</h3>
+
+  <p>
+    <strong>Dimas Fanny Hebrasianto Permadi, S.ST., M.Kom</strong>
+  </p>
+  
+  <br />
+  <br />
+    <h4>Asisten Praktikum :</h4>
+    <strong> Apri Pandu Wicaksono </strong> <br>
+    <strong>Rangga Pradarrell Fathi</strong>
+  <br />
+
+  <h3>LABORATORIUM HIGH PERFORMANCE
+ <br>FAKULTAS INFORMATIKA <br>UNIVERSITAS TELKOM PURWOKERTO <br>2026</h3>
+</div>
+
+<hr>
 
 ## Dasar Teori
-Tipe data merpukan pengelompokan data berdasarkan ciri-cirinya. Jenis ini mempunya fungsi yang berbeda-beda yang digunakan oleh compiler untuk mengetahui bagaimana sebuah data digunakan. Ada 3 tipe data yaitu primitif, abstak, dan koleksi.
-### - Tipe data Primitif
-Tipe data primitif merupakan tipe data yang sudah ditentukan oleh program c++ itu sendiri. Contohnya yaitu int, float, string, boolean dan char.
-### - Tipe data Abstrak
-Tipe data abstark adalah tipe data yang dibuat atau diciptakan oleh programmer itu sendiri.
-### - Tipe data Koleksi
-Tipe data Koleksi merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan di suatu variabel. Contohnya array, vector, dan map.
 
-## Guided
-### 1. Tipe data primitf
-```c++
-#include <iostream>
+### Pengenalan Javascript
 
-using namespace std;
+Javascript, seperti namanya, merupakan bahasa pemrograman scripting. Dan seperti bahasa scriptinglainnya, Javascript umumnya digunakan hanya untuk program yang tidak terlalu besar, biasanya hanya beberapa ratus baris. Javascript pada umumnya mengontrol program yang berbasis Java. Meskipun dibuat dengan tujuan awal untuk mengendalikan program Java, komunitas Javascript menggunakan bahasa ini untuk tujuan lain, memanipulasi gambar dan isi dari dokumen HTML. Singkatnya, pada akhirnya Javascript digunakan untuk satu tujuan utama, “menghidupkan” dokumen HTML dengan mengubah konten statis menjadi dinamis dan interaktif.
 
-int main()
-{
-    char op;
-    float num1, num2;
-    cout << "Masukkan jenis operator: ";
-    cin >> op;
-    cout << "Iputkan angka pertama: ";
-    cin >> num1;
-    cout << "Iputkan angka kedua: ";
-    cin >> num2;
+#### Prinsip Dasar Javascript
 
-    switch (op)
-    {
-    case '+':
-        cout << num1 + num2;
-        break;
-    case '-':
-        cout << num1 - num2;
-        break;
-    case '*':
-        cout << num1 * num2;
-        break;
-    case '/':
-        cout << num1 / num2;
-        break;
-    default:
-        cout << "Error! operator is not valid" << endl;
-    }
+1. Javascript mendukung paradigma pemrograman imparatif (Javascript dapat menjalankan perintah program baris demi baris, dengan masing-masing baris berisi satu atau lebih perintah), fungsional (struktur dan elemen-elemen dalam program sebagai fungsi matematis yang tidak memiliki keadaan (`state`) dan data yang dapat berubah (`mutable data`)), dan orientasi objek (segala sesuatu yang terlibat dalam program dapat disebut sebagai `objek`).
+2. Javascript memiliki model pemrograman fungsional yang sangat ekspresif.
+3. Pemrograman berorientasi objek (PBO) pada Javascript memiliki perbedaan dari PBO pada umumnya.
+4. Program kompleks pada Javascript umumnya dipandang sebagai program-program kecil yang saling berinteraksi.
 
-    return 0;
-}
+### Sintaks Umum pada Javascript
+
+#### Tipe data dasar
+
+Seperti kebanyakan bahasa pemrograman lainnya, Javascript memiliki beberapa tipe data untuk dimanipulasi. Seluruh nilai yang ada dalam Javascript selalu memiliki tipe data. Tipe data yang dimiliki oleh Javascript adalah sebagai berikut:
+
+- Number (bilangan)
+- String (serangkaian karakter)
+- Boolean (benar / salah)
+- Object
+- Function (fungsi)
+- Array
+- Date
+- RegExp (regular expression)
+- Null (tidak berlaku / kosong)
+- Undefined (tidak didefinisikan)
+
+#### Variabel
+
+Seperti pada bahasa pemrograman lainnya, variabel dalam Javascript merupakan sebuah tempat untuk menyimpan data sementara. Variabel dibuat dengan kata kunci var pada Javascript.
+
+```js
+var a; // a berisi undefined 
+var nama = "Budi"; // nama berisi "Budi"
 ```
-Kode diatas merupakan implementasi dari penggunaan tipe data primitif `float`, yang berfungsi seperti kalkulator sederhana.
 
-### 2. Tipe data abstark
-```c++
-#include <iostream>
-#include <stdio.h>
+Nilai yang ada di dalam variabel dapat diganti dengan mengisikan nilai baru, dan bahkan dapat diganti tipe 
+datanya juga.
 
-using namespace std;
+```js
+nama = "Anton"; // nama sekarang berisi string "Anton" 
+nama = 1; // nama sekarang berisi integer 1
+```
 
-// struct
-struct Mahasiswa
-{
-    const char *name;
-    const char *address;
-    int age;
+Walaupun kemampuan untuk menggantikan tipe data ini sangat memudahkan kita dalam mengembangkan aplikasi, fitur ini harus digunakan dengan sangat hati-hati. Perubahan tipe data yang tidak diperkirakan dengan baik dapat menyebabkan berbagai kesalahan (error) pada program.
+
+#### Array
+
+Array merupakan sebuah tipe data yang digunakan untuk menampung banyak tipe data lainnya. Berbeda dengan tipe data object, array pada Javascript merupakan sebuah tipe khusus. Walaupun memiliki method dan properti, array bukanlah objek, melainkan sebuah tipe yang “mirip objek”. Pembuatan array dalam Javascript dilakukan dengan menggunakan kurung siku ([]):
+
+```js
+var data = ["satu", 2, true];
+```
+
+Sebagai sebuah objek khusus, array juga memiliki method dan properti. Beberapa method dan properti yang populer misalnya `length`, `pop()`, dan `push()`.
+
+```js
+var data = ["a", "b", "c"]; 
+// data.length mengembalikan 3 
+data.push("d"); // mengembalikan 4 data menjadi ["a", "b", "c", "d"] 
+data.pop(); // mengembalikan "d", data menjadi ["a", "b", "c"]
+```
+
+#### Pengendalian Struktur
+
+Javascript memiliki perintah-perintah pengendalian struktur (`control stucture`) yang sama dengan bahasa dalam keluarga C. Perintah `if` dan `else` digunakan untuk percabangan, sementara perintah `for`, `for-in`, `while`, dan `do-while` digunakan untuk perulangan.
+
+```js
+var gelar;
+var pendidikan = "S2";
+
+if (pendidikan === "S1") {
+ gelar = "Sarjana";
+} else if (pendidikan === "S2") {
+ gelar = "Master";
+} else if (pendidikan === "S3") {
+ gelar = "Doktor";
+} else {
+ gelar = "Tidak Diketahui";
+}
+gelar; // gelar berisi "Master"
+```
+
+### Object Orientation pada Javascript
+
+Javascript memiliki dua jenis tipe data utama, yaitu tipe data dasar dan objek. Tipe data dasar pada Javascript adalah angka (`numbers`), rentetan karakter (`strings`), boolean (`true` dan `false`), `null`, dan `undefined`. Nilai-nilai selain tipe data dasar secara otomatis dianggap sebagai objek. Objek dalam Javascript didefinisikan sebagai mutable properties collection, yang artinya adalah sekumpulan properti (ciri khas) yang dapat berubah nilainya. Karena nilai-nilai selain tipe data dasar merupakan objek, maka pada Javascript sebuah Array adalah objek. Fungsi adalah objek dan Regular expression juga merupakan objek.
+
+#### Pembuatan Object pada Javascript
+
+Notasi pembuatan objek pada Javascript sangat sederhana, yaitu sepasang kurung kurawal yang membungkus properti. Notasi pembuatan objek ini dikenal dengan nama object literal. Object literal dapat digunakan kapanpun pada ekspresi Javascript yang valid. Sebuah objek dapat menyimpan banyak properti, dan setiap properti dipisahkan dengan tanda koma (,).
+
+```js
+var objek_kosong = {}; 
+var mobil = { 
+ "warna-badan": "merah", 
+ "nomor-polisi": "BK1234AB" 
 };
+```
 
-int main()
-{
-    // inisialisasi struct
-    struct Mahasiswa mhs1, mhs2;
+#### Akses Nilai Property
 
-    // pengisian value
-    mhs1.name = "Fahreza";
-    mhs1.address = "Ketenger";
-    mhs1.age = 18;
+1. Penggunaan kurung siku (`[]`) setelah nama objek. Kurung siku kemudian diisikan dengan nama properti, yang harus berupa string. Cara ini biasanya digunakan untuk nama properti yang adalah nama ilegal atau kata kunci Javascript.
+2. Penggunaan tanda titik (`.`) setelah nama objek diikuti dengan nama properti. Notasi ini merupakan notasi yang umum digunakan pada bahasa pemrograman lainnya. Notasi ini tidak dapat digunakan untuk nama ilegal atau kata kunci Javascript.
 
-    mhs2.name = "Evan";
-    mhs2.address = "Semaya";
-    mhs2.age = 19;
+```js
+mobil["warna-badan"] 
+```
 
-    // mencetak isi struct
-    printf("## Mahasiswa 1 ##\n");
-    printf("Nama: %s\n", mhs1.name);
-    printf("Alamat: %s\n", mhs1.address);
-    printf("Umur: %d\n", mhs1.age);
-    printf("## Mahasiswa 2 ##\n");
-    printf("Nama: %s\n", mhs2.name);
-    printf("Alamat: %s\n", mhs2.address);
-    printf("Umur: %d\n", mhs2.age);
+Sebagai bahasa dinamis, Javascript tidak akan melemparkan pesan kesalahan jika kita mengakses properti yang tidak ada dalam objek. Pengaksesan properti pada Javascript juga dapat digunakan secara dinamis untuk mengubah nilai dari properti tersebut.
 
-    return 0;
+#### Prototype pada Javascript
+
+Pada Javascript yang mengimplementasikan PBO kita tidak lagi perlu menuliskan kelas, dan langsung melakukan penurunan terhadap objek. Misalkan kita memiliki objek mobil yang sederhana seperti berikut:
+
+```js
+var mobil = { nama: "Mobil", 
+jumlahBan: 4 };
+```
+
+Kita dapat langsung menurunkan objek tersebut dengan menggunakan fungsi Object.create seperti 
+berikut:
+
+```js
+var truk = Object.create(mobil); 
+```
+
+### Function pada Javascript
+
+Sebuah fungsi membungkus satu atau banyak perintah. Setiap kali fungsi dipanggil, maka perintahperintah yang ada di dalam fungsi tersebut dijalankan. Secara umum fungsi digunakan untuk penggunaan kembali kode (code reuse) dan penyimpanan informasi (information hiding). Implementasi fungsi kelas pertama juga memungkinkan penggunaan fungsi sebagai unit-unit yang dapat dikombinasikan, seperti layaknya sebuah lego. Dukungan terhadap pemrograman berorientasi objek juga berarti fungsi dapat digunakan untuk memberikan perilaku tertentu dari sebuah objek.
+
+#### Pembuatan Fungsi pada Javascript
+
+```js
+function tambah(a, b) {
+ hasil = a + b;
+ return hasil;
 }
 ```
-Kode diatas merupakan implementasi tipe data abstak yaitu `struct`, yang berfungsi untuk menyimpan tipe data yang berbeda di suatu variabel.
 
-### 3. Tipe data koleksi
-```c++
-#include <iostream>
+Penulisan deklarasi fungsi (`function declaration`) seperti di atas merupakan cara penulisan fungsi yang umumnya kita gunakan pada bahasa pemrograman imperatif dan berorientasi objek. Tetapi selain deklarasi fungsi Javascript juga mendukung cara penulisan fungsi lain, yaitu dengan memanfaatkan ekspresi fungsi (`function expression`). Ekspresi fungsi merupakan cara pembuatan fungsi yang memperbolehkan menuliskan fungsi tanpa nama. Fungsi yang dibuat tanpa nama dikenal dengan sebutan fungsi `anonim` atau fungsi `lambda`.
 
-using namespace std;
+#### Pemanggilan Fungsi
 
-int main()
-{
-    // deklarasi dan inisalisasi array
-    int nilai[5];
-    nilai[0] = 75;
-    nilai[1] = 80;
-    nilai[2] = 85;
-    nilai[3] = 60;
-    nilai[4] = 90;
+Sebuah fungsi dapat dipanggil untuk menjalankan seluruh kode yang ada di dalam fungsi tersebut, sesuai dengan parameter yang kita berikan. Pemanggilan fungsi dilakukan dengan cara menuliskan nama fungsi tersebut, kemudian mengisikan argumen yang ada di dalam tanda kurung.
 
-    // mencetak array
-    cout << "Isi array pertama :" << nilai[0] << endl;
-    cout << "Isi array kedua :" << nilai[1] << endl;
-    cout << "Isi array ketiga :" << nilai[2] << endl;
-    cout << "Isi array keempat :" << nilai[3] << endl;
-    cout << "Isi array kelima :" << nilai[4] << endl;
-    return 0;
+```js
+function tambah(a, b) {
+ hasil = a + b;
+ return hasil;
 }
+
+tambah(3, 6)
 ```
-Kode diatas merupakan implementasi tipe data koleksi `array`, yang berfungsi untuk menyimpan berbagai data dengan tipe data yang sama di suatu variabel.
 
-## Unguided
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas. Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif! 
-``` c++
-#include <iostream>
+Fungsi akan mengembalikan nilai ketika kata kunci return ditemukan. Pengembalian nilai fungsi dapat dilakukan kapanpun, dan fungsi akan segera berhenti ketika kata kunci return ditemukan. Sebuah ekspresi dapat juga diberikan langsung kepada keyword return, dan ekspresi tersebut akan dijalankan sebelum nilai dikembalikan. Hal ini berarti fungsi tambah maupun naikkan yang sebelumnya bisa disederhanakan dengan tidak lagi menyimpan nilai di variabel hasil terlebih dahulu.
 
-using namespace std;
+### Pengenalan jQuery
 
-// fungsi cek even or odd number
-void JenisAngka(int angka)
-{
-    if (angka % 2 == 0) // jika habis dibagi 2
-    {
-        cout << "Amgka yang anda inputkan merupakan angka genap" << endl;
-    }
-    else
-    {
-        cout << "Amgka yang anda inputkan merupakan angka ganjil" << endl;
-    }
-}
+jQuery adalah sebuah library Javascript yang dibuat oleh John Resig pada tahun 2006. jQuery memungkinkan manipulasi dokumen HTML dilakukan hanya dalam beberapa baris code. Beberapa fitur utama yang terdapat pada jQuery adalah:
 
-// fungsi banfing angka 1 dan angka 2
-void Bandingkan(int angka1, int angka2)
-{
-    if (angka1 > angka2)
-    {
-        cout << "Angka pertama lebih besar daripada angka kedua" << endl;
-    }
-    else if (angka1 < angka2)
-    {
-        cout << "Angka kedua lebih besar daripada angka pertama" << endl;
-    }
-    else if (angka1 == angka2)
-    {
-        cout << "Angka pertama sama dengan angka kedua" << endl;
-    }
-}
+- DOM manipulation – jQuery memungkinkan untuk memodifikasi DOM (`Document Object Model`) menggunakan source selector yang disebut dengan `Sizzle`.
+- Event Handling – jQuery dapat menangani sebuah aksi pada dokumen HTML seperti saat pengguna melakukan click pada sebuah objek.
+- Ajax Support – jQuery dapat memfasilitasi pembuatan website menggunakan teknologi `AJAX`.
+- Animations – pada jQuery terdapat build-in animasi yang dapat digunakan pada halaman web.
+- Lightweight – ukuran file jQuery sangat ringan yaitu sekitar 19KB.
 
-int main()
-{
-    cout << "Fungsi Pertama" << endl;
-    JenisAngka(789);
-    JenisAngka(234);
+jQuery dapat dengan mudah digunakan pada sebuah situs web dengan berbagai cara, beberapa caranya adalah:
 
-    cout << "Fungsi Kedua" << endl;
-    Bandingkan(3, 7);
-    Bandingkan(123, 90);
-    Bandingkan(4,4);
-}
+1. Instalasi Lokal
+2. Menggunakan CDN (Content Delivery Network)
+
+### Kegunaan Lanjutan jQuery
+
+- Efek hide/show
+- Efek animasi
+
+## Tugas
+
+### 1. Buka kembali halaman ramadan dan tambahkan button atau semacam nya ketika di klik akan menampilkan modal "selamat anda mendapatkan THR" buat se interaktif itu dansebagus mungkin.
+
+#### Source code
+
+```html
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramadan Mubarak 1447 H</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+
+    <!-- library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-light text-dark">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-white bg-light border-bottom border-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success d-flex align-items-center gap-2" href="#">
+                <i class="bxf bx-moon-stars"></i>
+                Ramadan 1447 H
+            </a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="bg-success-subtle text-center p-5 border-bottom border-success-subtle">
+        <div class="container p-4">
+            <div class="mb-3">
+                <i class="bxf bx-islam text-success-emphasis fs-1"></i>
+            </div>
+
+            <p class="text-success-emphasis text-uppercase fst-italic fw-semibold letter-spacing mb-2">
+                <i class="bxf bx-sparkles-alt me-2"></i>1447 Hijriyyah<i class="bxf bx-sparkles-alt mx-2"></i>
+            </p>
+
+            <h1 class="display-4 fw-bold text-success mb-1">رَمَضَان مُبَارَك</h1>
+            <h2 class="display-5 fw-bold text-white mb-5">Ramadan Mubarak</h2>
+            <p class="lead text-white col-md-6 mx-auto mb-4">
+                Selamat memasuki bulan suci Ramadan. Semoga ibadah kita diterima,
+                dosa-dosa diampuni, dan hati kita semakin dekat kepada Allah SWT.
+            </p>
+
+            <div class="mt-3">
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- amalan -->
+    <div id="amalan" class="bg-white-emphasis p-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success text-uppercase fw-semibold mb-1">
+                    Amalan Utama
+                </p>
+
+                <h3 class="h2 fw-bold text-success mb-0">Pilar Ramadan</h3>
+                <hr class="border-success-subtle opacity-25 col-2 mx-auto mt-3">
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-moon text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Puasa</h4>
+                            <p class="card-text text-secondary-emphasis">Menahan diri dari makan, minum, dan hal yang
+                                membatalkan puasa dari fajar hingga terbenam matahari</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-book-quran text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Tadarus Al-Qur'an</h5>
+                                <p class="card-text text-secondary-emphasis">Memperbanyak membaca dan mengkaji
+                                    Al-Qur'an. Bulan
+                                    Ramadan adalah bulan diturunkannya Al-Qur'an</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-mosque text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Shalat Tarawih</h4>
+                            <p class="card-text text-secondary-emphasis">Shalat sunnah khusus di malam Ramadan,
+                                dilaksanakan berjamaah di masjid setelah shalat Isya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-hand-holding-heart text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">Sedekah & Zakat</h4>
+                            <p class="card-text text-secondary-emphasis">Memperbanyak sedekah dan menunaikan zakat
+                                fitrah
+                                sebagai bentuk kepedulian kepada sesama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="fa-solid fa-hands text-success-emphasis fs-1 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis">I'tikaf</h4>
+                            <p class="card-text text-secondary-emphasis">Berdiam diri di masjid, terutama pada 10 malam
+                                terakhir Ramadan untuk meraih Lailatul Qadar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
+                        <div class="card-body">
+                            <i class="bxf bx-moon-star text-success-emphasis fs-1 mb-3"></i>
+                            <h5 class="card-title fw-bold text-light-emphasis">Lailatul Qadar</h5>
+                            <p class="card-text text-secondary-emphasis">Malam yang lebih baik dari seribu bulan. Dicari
+                                pada malam ganjil di 10 hari terakhir Ramadan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ayat qur'an -->
+    <div class="bg-success-subtle p-5 border-bottom border-success-subtle">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="bxf bx-quote-left text-success-emphasis fs-1 opacity-50 mb-3"></i>
+                    <p class="text-success-emphasis fw-bold mb-3 fs-1">
+                        شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ
+                    </p>
+
+                    <p class="lead text-light-emphasis fst-italic mb-5">
+                        "Bulan Ramadan adalah (bulan) yang di dalamnya diturunkan Al-Qur'an,
+                        sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai
+                        petunjuk itu dan pembeda (antara yang benar dan yang batil)."
+                    </p>
+
+                    <span class="badge bg-light text-success px-3 py-2 fs-6">
+                        <i class="fa-solid fa-book-quran me-2"></i>QS. Al-Baqarah: 185
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- niat dan doa puasa -->
+    <div id="doa" class="bg-light py-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
+                        <div class="card-body">
+                            <i class="bxf bx-night-light text-success-emphasis fs-2 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Niat Puasa</h4>
+                            <p class="text-success-emphasis mb-3 fs-3">
+                                نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ لِلَّهِ تَعَالَى
+                            </p>
+
+                            <p class="card-text text-secondary-emphasis fst-italic">
+                                "Saya niat berpuasa esok hari untuk menunaikan kewajiban
+                                puasa di bulan Ramadhan karena Allah Ta'ala."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
+                        <div class="card-body">
+                            <i class="bxf bx-moon-crater text-success-emphasis fs-2 mb-3"></i>
+                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Do'a Berbuka Puasa</h4>
+                            <p class="text-success-emphasis mb-3 fs-3">
+                                اَللّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ
+                            </p>
+
+                            <p class="card-text text-secondary-emphasis fst-italic">
+                                "Ya Allah, untuk-Mu aku berpuasa, kepada-Mu aku beriman,
+                                dan dengan rezeki-Mu aku berbuka."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- tips -->
+    <div class="bg-success-subtle py-5 border-bottom border-success-subtle">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="text-success-emphasis text-uppercase fw-semibold mb-1">
+                    <i class="fa-solid fa-lightbulb me-2"></i>Panduan
+                </p>
+
+                <h3 class="h2 fw-bold text-light-emphasis mb-0">Tips Ramadan Produktif</h3>
+                <hr class="border-success opacity-25 col-2 mx-auto mt-3">
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="bxf bx-fork-knife text-success fs-4 mt-1 flex-shrink-0"></i>
+
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Jaga Asupan Sahur</h6>
+                            <p class="text-secondary mb-0">Konsumsi makanan bergizi dan berserat tinggi agar
+                                energi tahan sepanjang hari.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="fa-solid fa-droplet text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Perbanyak Minum Air</h6>
+                            <p class="text-secondary mb-0">Penuhi kebutuhan cairan antara Maghrib dan Sahur agar
+                                tubuh tidak dehidrasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="bxf bx-biceps text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Tetap Aktif Berolahraga</h6>
+                            <p class="text-secondary mb-0">Olahraga ringan menjelang buka puasa membantu
+                                metabolisme tetap baik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
+                        <i class="fa-solid fa-brain text-success fs-4 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold text-success mb-1">Kelola Waktu dengan Bijak</h6>
+                            <p class="text-secondary mb-0">Buat jadwal harian agar ibadah, pekerjaan, dan
+                                istirahat bisa berjalan seimbang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-light py-4 border-top border-success-subtle">
+        <div class="container text-center">
+            <p class="text-success fw-bold mb-1">رَمَضَان كَرِيم
+            </p>
+            <p class="text-secondary small text-uppercase mb-3" style="letter-spacing:.25em;">Ramadan Kareem — 1447 H
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <i class="bxf bx-sparkles-alt text-success opacity-50"></i>
+                <i class="bxf bx-moon text-success"></i>
+                <i class="bxf bx-moon-stars text-success fs-5"></i>
+                <i class="bxf bx-moon text-success"></i>
+                <i class="bxf bx-sparkles-alt  text-success opacity-50"></i>
+            </div>
+
+            <p class="text-secondary-emphasis small mb-0">
+                Semoga Ramadan ini membawa berkah, ampunan, dan kebahagiaan untuk kita semua.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
 ```
-### Output
-![Output 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output1.png)
-Kode diatas adalah contoh penggunaan dari tipe data primitif. Fungsi pertama digunakan untuk mengecek angka apakah ganjil atau genap sedangkan fungsi kedua untuk membandingkan antara angka pertama atau kedua. 
-Kesimpulanya adalah tipe data ini merupakan tipe data default, yang mana tidak ada fleksibilitas dalam penggunaanya namun tipe data ini yang menjadi pondasi dari seluruh program c++.
-### Full code Screenshot
-![Code 1](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code1.png)
 
-### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
-``` c++
-#include <iostream>
-#include <stdio.h>
+#### Penjelasan kode
 
-using namespace std;
+#### Output
 
-// inisialisasi class
-class Game
-{
-public:
-    string nama;
-    string genre;
-    int tahun;
-    string size;
-
-    // fungsi menampilkan info class
-    void displayInfo()
-    {
-        cout << "Game " << nama << " dengan genre " << genre << " di publish tahun " << tahun << " dengan size " << size << endl;
-    }
-};
-
-// inisialisasi struct
-struct Hero
-{
-    const char *name;
-    const char *role;
-    string type;
-};
-
-int main()
-{
-    // deklarasi class
-    Game game1;
-
-    game1.nama = "Dark Souls";
-    game1.genre = "RPG Linear";
-    game1.tahun = 2018;
-    game1.size = "9,2 GB";
-    game1.displayInfo();
-
-    // deklarasi struct
-    Hero hero1;
-    hero1.name = "John Dark Soul";
-    hero1.role = "Sorcerer";
-    hero1.type = "DPS";
-
-    cout << endl;
-    cout << "Karakter" << endl;
-    cout << "Name: " << hero1.name << endl;
-    cout << "Role: " << hero1.role << endl;
-    cout << "Type: " << hero1.type << endl;
-
-    return 0;
-}
-```
-### Output
-![Output 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output2.png)
-Class merupakan tipe data defaultnya adalah private, jadi jika objek anggota dari class itu sendiri ingin dipublikasikan, maka harus menyertakan public di potongan kode tersebut Sedangakan Struct atau structure merupakan tipe data yang menyimpan beberapa data dengan default public, Struktur bermanfaat untuk mengelompokan sejumlah data dengan tipe yang berlainan[1]. Kode diatas merupakan contoh penggunaan class dan struct, pada class menyertakan public agar kode bisa diakses di int main dan pada struct karena defaultnya public jadi langsung inisialisasi variabel.
-### Full code Screenshot
-![Code 2](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code2.png)
-
-### 3. Buat dan jelaskan program menggunakan fungsi map dan jelaskan perbedaan dari array dengan map
-```c++
-#include <iostream>
-#include <map>
-
-using namespace std;
-
-int main()
-{
-    // insialisasi dan deklarasi map
-    map<string, int> dataDamage;
-
-    // isi value map
-    dataDamage["Strength"] = 650;
-    dataDamage["Dexterity"] = 500;
-    dataDamage["Intellegence"] = 800;
-    dataDamage["Faith"] = 700;
-
-    cout << "Informasi Damage Build" << endl;
-    
-    // perulangan range based loop untuk menampilkan map
-    for (auto& entry : dataDamage) {
-        cout << "Build " << entry.first << " Damage: " << entry.second << endl;
-    }
-
-    return 0;
-}
-```
-### Output
-![Output 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Output3.png)
-Kode diatas merupakan penggunaan map dalam c++, dimulai dari insialisasi map beserta tipe datanya kemudian pengisian map pada int main lalu terakhir dengan perulangan for range based loop dengan menggunakan `auto` mencetak map tersebut. Perbedaan antara array dan map terletak pada tipe data indeks pada map yang memungkinkan untuk berupa tipe data selain integer[2].
-### Full code Screenshot
-![Code 3](https://raw.githubusercontent.com/grazeza/Struktur-Data-Assignment/main/Modul%201%20-Tipe%20Data/gambar/Code3.png)
-
-## Kesimpulan
-Tipe data adalah klasifikasi atau pengelompokan data berdasarkan sifat atau ciri-ciri tertentu. Setiap jenis tipe data memiliki fungsi yang berbeda-beda yang memungkinkan programmer untuk lebih leluasa membuat atau menciptakan suatu logika program yang lebih kompleks dan efisien juga digunakan oleh compiler untuk memahami cara data tersebut digunakan dalam program. Ada tiga tipe data utama, yaitu primitif, abstak, dan koleksi. 
-- Tipe data primitif merupakan tipe data default yang menjadi pondasi
-- Tipe data abstrak merupakan tipe data yang dibuat oleh programmer yang biasa digunakan di pemograman OOP.
-- Tipe data kolektif merupakan tipe data yang digunakan untuk menyimpan data secara bersamaan.
-
-## Referensi
-[1] Akbar, Ramadhani. Struct dan Class. boltremjaya.wordpress.com; 2013. https://boltremjaya.wordpress.com/2013/09/16/struct-dan-class/
-
-[2] Adam, Rian. TUTORIAL STRUKTUR DATA MAP PADA C++. structilmy.com; 2020. https://structilmy.com/blog/2020/08/08/tutorial-struktur-data-map-pada-c/
+![Output 1](images/task_image1.png)
