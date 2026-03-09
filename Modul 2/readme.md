@@ -18,16 +18,17 @@ Untuk menambahkan suatu file ke dalam repositori, dapat langsung menambahkan fil
 Untuk membuat repositori online dapat dilakukan melalui website github.
 4. Menyimpan hasil pekerjaan di repositori online.
 Untuk menyimpan hasil pekerjaan bisa mengikuti langkah langkah berikut:
-a. Ketikan perintah ini, sesuaikan dengan username dan repository Anda:
+- a. Ketikan perintah ini, sesuaikan dengan username dan repository Anda:
 `git remote add origin https://github.com/usernameanda/namarepo.git `
 Perintah ini akan menambahkan repositori online yang ada pada Github kedalam daftar repositori jarak jauh yang ada.
-b. Untuk mengirimkan data yang ada di komputer kalian ke repositori jarak jauh, gunakan perintah ini:
+- b. Untuk mengirimkan data yang ada di komputer kalian ke repositori jarak jauh, gunakan perintah ini:
 `git push -u origin master`
-5. Clone repositori milik orang lain.
+5. Clone repositori milik orang lain.  
 Untuk mengclone repositori orang lain bisa mengikuti langkah langkah berikut:
-a. Buka repositori yang akan di-clone pada Github, lalu klik tombol clone.
-b. Copy text yang muncul seperti dibawah ini, ini merupakan url dari repositori tujuan yang akan di clone.
-c. Buka command prompt dan ketikan perintah ini, `git clone [url repositori tujuan]`
+
+- a. Buka repositori yang akan di-clone pada Github, lalu klik tombol clone.
+- b. Copy text yang muncul seperti dibawah ini, ini merupakan url dari repositori tujuan yang akan di clone.
+- c. Buka command prompt dan ketikan perintah ini, `git clone [url repositori tujuan]`
 
 ## Tugas
 ### 1. Melakukan setup repository via CLI
