@@ -57,23 +57,6 @@ $(document).ready(function () {
         localStorage.setItem("products", JSON.stringify(products));
     }
 
-    // untuk mengupdate data pada tabel
-    function updateRow(index) {
-        let product = products[index];
-        let row = table.row(index);
-
-        row.data([
-            index + 1,
-            product.name,
-            categoryBadge(product.category),
-            "Rp. " + product.price,
-            `
-                <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
-                <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
-            `
-        ]).draw(false);
-    }
-
     // untuk menentukan kelas category
     function categoryBadge(category) {
         let badges = {

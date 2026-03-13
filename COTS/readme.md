@@ -75,7 +75,7 @@ Output:
 
 ### Penggunaan Bootstrap
 
-Pada tugas ini, Bootstrap 5.3 digunakan sebagai framework CSS dan JavaScript untuk mempercepat proses pembuatan tampilan antarmuka (`UI`) yang responsif, konsisten, dan mudah dikembangkan. Pada website ini, Bootstrap diimpor menggunakan Content Delivery Network (`CDN`) sehingga proses pemuatan library menjadi lebih cepat tanpa perlu mengunduh dan menyimpan file Bootstrap secara lokal.
+Pada tugas ini, Bootstrap 5.3 digunakan sebagai framework CSS dan JavaScript untuk mempercepat proses pembuatan tampilan antarmuka (UI) yang responsif, konsisten, dan mudah dikembangkan. Pada website ini, Bootstrap diimpor menggunakan Content Delivery Network (`CDN`) sehingga proses pemuatan library menjadi lebih cepat tanpa perlu mengunduh dan menyimpan file Bootstrap secara lokal.
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -138,23 +138,23 @@ Tampilan website menerapkan tema gelap (`dark theme`) dengan menggunakan beberap
 
 Utility class pada Bootstrap digunakan untuk memberikan styling tambahan atau penyesuaian detail tanpa perlu menulis CSS kustom. Dengan utility class, pengembang dapat dengan cepat mengatur posisi, jarak antar elemen, tipografi, serta tampilan visual lainnya secara langsung pada elemen HTML. Pada website ini, beberapa utility class Bootstrap digunakan untuk mempercantik sekaligus merapikan tampilan antarkomponen. Beberapa di antaranya adalah sebagai berikut:
 
-* .position-*
+* `.position-*`
 Digunakan untuk mengatur posisi elemen, seperti relative, absolute, atau fixed, sehingga elemen dapat ditempatkan sesuai kebutuhan pada layout.
-* .border dan variasinya
+* `.border` dan variasinya
 Digunakan untuk menambahkan garis tepi pada elemen, misalnya untuk memperjelas batas antar komponen.
-* .fw-* (font weight)
+* `.fw-*` (font weight)
 Mengatur ketebalan teks, misalnya fw-bold untuk membuat teks menjadi tebal.
-* .fs-* (font size)
+* `.fs-*` (font size)
 Mengatur ukuran teks agar lebih menonjol atau menyesuaikan dengan hierarki informasi.
-* .m-* (margin)
+* `.m-*` (margin)
 Digunakan untuk mengatur jarak luar antar elemen sehingga tata letak terlihat lebih rapi.
-* .p-* (padding)
+* `.p-*` (padding)
 Mengatur jarak dalam suatu elemen agar konten tidak terlalu rapat dengan batas elemen.
-* .rounded dan variasinya
+* `.rounded` dan variasinya
 Memberikan sudut yang membulat pada elemen, sehingga tampilan terlihat lebih modern dan halus.
-* .text-uppercase
+* `.text-uppercase`
 Mengubah teks menjadi huruf kapital untuk memberikan penekanan pada judul atau label.
-* .text-center
+* `.text-center`
 Mengatur perataan teks agar berada di tengah.
 
 Contoh penerapan utility class tersebut dapat dilihat pada potongan kode berikut.
@@ -200,6 +200,660 @@ Menggunakan tipe input `number` untuk memasukkan nilai harga produk secara numer
 
 ```html
 <div class="row justify-content-center mb-5">
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-black border border-primary border-opacity-50 rounded-4 p-4 p-md-5">
+
+            <p class="text-primary text-uppercase fw-bold small mb-0">Inventory</p>
+            <h2 class="fw-bold text-white mb-1">Add Product</h2>
+            <hr class="border border-primary border-2 opacity-75 mt-2 mb-4 w-25">
+
+            <form id="addProductForm" action="#">
+                <div class="mb-3">
+                    <label for="product_name"
+                        class="form-label text-white-50 text-uppercase fw-semibold small">Name</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text bg-black border-secondary text-primary">
+                            <i class="ph-duotone ph-package fs-5"></i>
+                        </span>
+
+                        <input type="text" class="form-control bg-black border-secondary text-white"
+                            id="product_name" placeholder="e.g. Logitech G Pro X">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category"
+                        class="form-label text-white-50 text-uppercase fw-semibold small">Category</label>
+
+                    <select class="form-select bg-black border-secondary text-white" id="category"
+                        aria-placeholder="Select Category">
+                        <option value="mouse"> Mouse</option>
+                        <option value="keyboard"> Keyboard</option>
+                        <option value="monitor"> Monitor</option>
+                        <option value="headphone"> Headphone</option>
+                        <option value="iem"> IEM</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price"
+                        class="form-label text-white-50 text-uppercase fw-semibold small">Price</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text bg-black border-secondary text-primary">
+                            <i class="ph-duotone ph-currency-circle-dollar fs-5"></i>
+                        </span>
+
+                        <input type="number" class="form-control bg-black border-secondary text-white"
+                            id="price" placeholder="0">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-5">
+                    <button type="submit" class="btn btn-primary fw-bold px-5">
+                        <i class="ph-fill ph-plus-square me-1"></i> Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+```
+
+![Output 3](images/image3.png)
+
+### Penggunaan Datatable dan JQuery
+
+DataTables adalah plugin jQuery yang digunakan untuk meningkatkan fungsionalitas tabel HTML agar menjadi lebih interaktif dan mudah digunakan dan jQuery adalah library JavaScript yang digunakan untuk mempermudah manipulasi DOM, pengolahan event, serta pembuatan fitur interaktif pada halaman web dengan sintaks yang lebih sederhana dibandingkan JavaScript murni.
+
+#### Datatable
+
+Penggunaan DataTables pada website ini diimpor melalui CDN, kemudian dimanfaatkan untuk menampilkan seluruh data produk dalam bentuk tabel yang lebih interaktif. `DataTables` dipilih karena menyediakan berbagai fitur bawaan yang dapat membantu pengguna dalam mengelola dan menelusuri data produk dengan lebih mudah, seperti pencarian, pengurutan data, dan `pagination`.
+
+```html
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+```
+
+DataTables diimplementasikan pada segmen tabel produk, yaitu pada elemen tabel yang memiliki atribut `id="productTable"`. ID tersebut kemudian digunakan pada bagian JavaScript untuk melakukan inisialisasi `DataTables` terhadap tabel tersebut. Selain itu, tampilan tabel juga tetap menggunakan tema dan kelas Bootstrap yang telah disebutkan sebelumnya sehingga tampilannya tetap konsisten dengan keseluruhan desain website.
+
+```html
+<div class="row justify-content-center mb-5">
+    <div class="col-md-10" data-aos="fade-up" data-aos-delay="150">
+        <div class="bg-black border border-primary border-opacity-50 rounded-4 p-4 p-md-5">
+
+            <p class="text-primary text-uppercase fw-bold small mb-0">Overview</p>
+            <h2 class="fw-bold text-white mb-1">Product List</h2>
+            <hr class="border border-primary border-2 opacity-75 mt-2 mb-4 w-25">
+
+            <table id="productTable" class="table table-dark table-striped table-hover align-middle w-100">
+                <thead class="border-bottom border-primary border-opacity-50">
+                    <tr>
+                        <th class="text-white text-uppercase small fw-bold">#</th>
+                        <th class="text-white text-uppercase small fw-bold">Product Name</th>
+                        <th class="text-white text-uppercase small fw-bold">Category</th>
+                        <th class="text-white text-uppercase small fw-bold">Price</th>
+                        <th class="text-white text-uppercase small fw-bold">Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+```
+
+Pada proses inisialisasi di JavaScript, `DataTables` dapat dikonfigurasi dengan berbagai parameter tambahan. Pada website ini digunakan beberapa parameter, yaitu:
+
+* `paging`
+Mengaktifkan fitur pagination untuk membagi data ke dalam beberapa halaman.
+* `searching`
+Menyediakan fitur pencarian sehingga pengguna dapat menemukan data produk dengan lebih cepat.
+* `stateSave`
+Menyimpan kondisi tabel (seperti halaman, pencarian, dan `sorting`) sehingga tetap tersimpan ketika halaman dimuat ulang.
+* `ordering`
+Memungkinkan pengguna untuk mengurutkan data berdasarkan kolom tertentu.
+* `columnDefs`
+Digunakan untuk mengatur perilaku atau konfigurasi khusus pada kolom tertentu dalam tabel misalnya kelas atau atribut tambahan.
+
+```js
+let table = $("#productTable").DataTable({
+    paging: true,
+    searching: true,
+    stateSave: true,
+    ordering: false,
+    columnDefs: [
+        {
+            targets: 1,
+            className: "fw-bold"
+        },
+        {
+            targets: 2,
+            className: "align-middle text-center"
+        },
+        {
+            targets: 3,
+            className: "fw-bold text-end"
+        },
+        {
+            targets: 4,
+            className: "align-middle text-center"
+        }
+    ]~
+});
+```
+
+![Output 4](images/image4.png)
+
+#### JQuery
+
+Pada website ini, jQuery terutama digunakan untuk melakukan seleksi elemen HTML serta menyediakan berbagai utilitas yang mempermudah manipulasi dan interaksi pada halaman. Dengan jQuery, proses penanganan `event` dan pengambilan nilai dari elemen form dapat dilakukan dengan sintaks yang lebih sederhana.
+
+Beberapa fungsi jQuery yang digunakan pada website ini antara lain:
+
+* `$(document).ready()`
+Digunakan untuk memastikan bahwa seluruh elemen HTML telah dimuat sebelum kode JavaScript dijalankan.
+* Selector jQuery (`$()`)
+Digunakan untuk memilih elemen HTML tertentu berdasarkan id, class, atau atribut sehingga elemen tersebut dapat dimanipulasi melalui JavaScript.
+* `.val()`
+Digunakan untuk mengambil atau mengatur nilai dari elemen input, seperti field nama produk, kategori, dan harga.
+* `.on()`
+Digunakan untuk menangani event pada elemen, misalnya event click atau submit.
+* `submit` event handler
+Digunakan untuk menangani proses pengiriman form, seperti saat pengguna menambahkan atau memperbarui data produk.
+
+```js
+$("#productTable")...
+
+let name = $('#product_name').val();
+let category = $('#category').val();
+let price = $('#price').val();
+
+$("#addProductForm").submit(function (event) {});
+```
+
+### Fitur pada Tabel
+
+#### Searching
+
+Searching merupakan salah satu fitur pada `DataTables` yang memungkinkan pengguna untuk mencari kata kunci tertentu di dalam data yang ditampilkan pada tabel. Dengan fitur ini, pengguna dapat dengan cepat menemukan data yang diinginkan tanpa harus menelusuri seluruh isi tabel secara manual. Jika menggunakan `DataTables`, fitur searching dapat diaktifkan saat proses inisialisasi `DataTables` melalui parameter konfigurasi. Namun pada umumnya, fitur pencarian ini sudah aktif secara default, sehingga kolom pencarian akan langsung tersedia ketika DataTables diterapkan pada sebuah tabel.
+
+![Output 5](images/image5.png)
+
+#### Pagination
+
+Pagination merupakan fitur pada `DataTables` yang digunakan untuk membagi data tabel menjadi beberapa halaman (`pages`). Fitur ini bertujuan agar data yang ditampilkan tidak terlalu panjang dalam satu tampilan, sehingga lebih mudah dibaca dan dinavigasi oleh pengguna. Dengan adanya pagination, pengguna dapat berpindah dari satu halaman data ke halaman lainnya menggunakan kontrol navigasi yang tersedia di bagian bawah tabel. Pada `DataTables`, fitur ini dapat diaktifkan melalui parameter paging saat proses inisialisasi. Namun secara default, pagination biasanya sudah aktif secara otomatis ketika `DataTables` diterapkan pada sebuah tabel.
+
+![Output 6](images/image6.png)
+
+#### Action
+
+Pada website ini diterapkan action `button`, yaitu tombol yang digunakan untuk melakukan pengolahan data seperti mengedit atau menghapus data produk. Tombol-tombol tersebut ditempatkan pada setiap baris data di dalam tabel, sehingga pengguna dapat langsung melakukan tindakan terhadap data produk yang dipilih.
+
+![Output 7](images/image7.png)
+
+### CRUD
+
+Karena tujuan utama pembuatan website ini adalah untuk mengimplementasikan `CRUD` sederhana menggunakan object mapping, maka logika utama atau backend logic dari website ditempatkan pada file `script.js`. File JavaScript tersebut berisi seluruh implementasi operasi CRUD (`Create`, `Read`, `Update`, dan `Delete`) yang digunakan untuk mengelola data produk pada aplikasi. Selain itu, file `script.js` juga memuat beberapa fungsi utilitas tambahan yang mendukung jalannya fitur pada website, seperti pengambilan nilai dari form, manipulasi data objek, pembaruan tampilan tabel, serta penanganan event dari interaksi pengguna. Dengan demikian, seluruh proses pengolahan data pada website dapat dikelola secara terpusat melalui file JavaScript tersebut.
+
+#### Create
+
+Fitur Create pada website ini digunakan untuk menambahkan data produk baru ke dalam sistem melalui form input. Proses ini dimulai ketika pengguna mengisi field nama produk, kategori, dan harga, kemudian menekan tombol `Save Product` pada form.
+
+Saat form dikirim, event `submit` ditangkap oleh jQuery menggunakan selector `$("#addProductForm").submit()`. Pada tahap ini digunakan fungsi `event.preventDefault()` untuk mencegah halaman melakukan reload, sehingga proses penambahan data dapat dilakukan secara dinamis menggunakan JavaScript. Nilai dari setiap input kemudian diambil menggunakan fungsi `.val()`, yaitu untuk field `product_name`, `category`, dan `price`. Data tersebut selanjutnya dipetakan ke dalam sebuah object `product` dengan properti `name`, `category`, dan `price`. Teknik ini disebut object mapping, yaitu proses mengubah data input menjadi struktur objek yang lebih mudah dikelola. Selanjutnya, data produk yang baru ditambahkan akan langsung ditampilkan pada tabel menggunakan `DataTables` dengan metode `table.row.add()`. Pada baris tabel tersebut juga ditambahkan tombol aksi `edit` dan `delete` yang masing-masing memiliki atribut data-index untuk menandai posisi data dalam array.
+
+```html
+<form id="addProductForm" action="#">
+    <div class="mb-3">
+        <label for="product_name"
+            class="form-label text-white-50 text-uppercase fw-semibold small">Name</label>
+
+        <div class="input-group">
+            <span class="input-group-text bg-black border-secondary text-primary">
+                <i class="ph-duotone ph-package fs-5"></i>
+            </span>
+
+            <input type="text" class="form-control bg-black border-secondary text-white"
+                id="product_name" placeholder="e.g. Logitech G Pro X">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="category"
+            class="form-label text-white-50 text-uppercase fw-semibold small">Category</label>
+
+        <select class="form-select bg-black border-secondary text-white" id="category"
+            aria-placeholder="Select Category">
+            <option value="mouse"> Mouse</option>
+            <option value="keyboard"> Keyboard</option>
+            <option value="monitor"> Monitor</option>
+            <option value="headphone"> Headphone</option>
+            <option value="iem"> IEM</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="price"
+            class="form-label text-white-50 text-uppercase fw-semibold small">Price</label>
+
+        <div class="input-group">
+            <span class="input-group-text bg-black border-secondary text-primary">
+                <i class="ph-duotone ph-currency-circle-dollar fs-5"></i>
+            </span>
+
+            <input type="number" class="form-control bg-black border-secondary text-white"
+                id="price" placeholder="0">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5">
+        <button type="submit" class="btn btn-primary fw-bold px-5">
+            <i class="ph-fill ph-plus-square me-1"></i> Save Product
+        </button>
+    </div>
+</form>
+```
+
+```js
+$("#addProductForm").submit(function (event) {
+    event.preventDefault();
+
+    let name = $('#product_name').val();
+    let category = $('#category').val();
+    let price = $('#price').val();
+
+    // mapping object
+    let product = {
+        name: name,
+        category: category,
+        price: price
+    };
+
+    // save ke array dan local storage
+    products.push(product);
+    saveToLocalStorage();
+
+    let index = products.length - 1;
+
+    table.row.add([
+        index + 1,
+        product.name,
+        categoryBadge(product.category),
+        "Rp. " + product.price,
+        `
+            <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+            <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+        `
+    ]).draw(false);
+
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Product has been successfuly saved",
+        showConfirmButton: false,
+        background: '#181818ff',
+        color: '#fff',
+        timer: 2000
+    });
+
+    this.reset();
+});
+```
+
+Input form
+![Output 8](images/image8.png)
+
+Contoh output
+![Output 9](images/image9.png)
+
+#### Read
+
+Fitur Read pada website ini digunakan untuk menampilkan data produk yang tersedia ke dalam tabel produk. Tampilan tabel dibuat menggunakan elemen `<table>` yang memiliki `id="productTable"` dan kemudian diintegrasikan dengan `DataTables` agar data dapat ditampilkan secara lebih interaktif. Pada bagian JavaScript, data produk yang tersedia akan dilakukan iterasi menggunakan `forEach()`. Setiap data produk kemudian dimasukkan ke dalam tabel menggunakan fungsi `table.row.add()` dari `DataTables`. Data yang ditampilkan pada setiap baris tabel meliputi nomor urut, nama produk, kategori, harga, serta kolom action yang berisi tombol `edit` dan `delete`. Selain itu, kategori produk juga ditampilkan menggunakan fungsi `categoryBadge()` untuk memberikan tampilan label kategori yang lebih informatif. Setelah seluruh data dimasukkan ke dalam tabel, fungsi `table.draw(false)` dipanggil untuk merender atau menampilkan data tersebut pada `DataTables`.
+
+```html
+<table id="productTable" class="table table-dark table-striped table-hover align-middle w-100">
+    <thead class="border-bottom border-primary border-opacity-50">
+        <tr>
+            <th class="text-white text-uppercase small fw-bold">#</th>
+            <th class="text-white text-uppercase small fw-bold">Product Name</th>
+            <th class="text-white text-uppercase small fw-bold">Category</th>
+            <th class="text-white text-uppercase small fw-bold">Price</th>
+            <th class="text-white text-uppercase small fw-bold">Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+```
+
+```js
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+if (products.length > 0) {
+    products.forEach(function (product, index) {
+        table.row.add([
+            index + 1,
+            product.name,
+            categoryBadge(product.category),
+            "Rp. " + product.price,
+            `
+                <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+                <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+            `
+        ]);
+    });
+
+    table.draw(false);
+}
+```
+
+Contoh tabel
+![Output 10](images/image4.png)
+
+#### Update
+
+Fitur Edit pada website ini digunakan untuk memperbarui data produk yang sudah ada pada tabel. Proses edit dimulai ketika pengguna menekan tombol `edit` pada salah satu baris data. Event klik tersebut ditangkap menggunakan jQuery pada selector `#productTable tbody .editBtn`. Ketika tombol ditekan, sistem akan mengambil `index` data produk yang tersimpan pada atribut `data-index`, kemudian mengambil data produk yang sesuai dari array `products`. Data tersebut selanjutnya dimasukkan ke dalam form edit yang berada di dalam modal Bootstrap, sehingga pengguna dapat melihat dan mengubah informasi produk. Setelah pengguna mengubah data dan menekan tombol `Save Product`, event `submit` pada form edit akan diproses oleh JavaScript. Data input yang baru kemudian digunakan untuk memperbarui objek produk pada array `products`, lalu baris tabel yang sedang diedit diperbarui menggunakan metode `currentRow.data()` dari `DataTables`.
+
+```html
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-black border border-primary border-opacity-50 rounded-4 p-2 p-md-4">
+            <h2 class="fw-bold text-white mb-1">Edit Product</h2>
+            <hr class="border border-primary border-2 opacity-75 mt-2 mb-4 w-25">
+
+            <form id="editProductForm" action="#">
+                <div class="modal-body">
+                    <input type="hidden" id="edit_index">
+
+                    <div class="mb-3">
+                        <label for="product_name_edit"
+                            class="form-label text-white-50 text-uppercase fw-semibold small">Name</label>
+
+                        <div class="input-group">
+                            <span class="input-group-text bg-black border-secondary text-primary">
+                                <i class="ph-duotone ph-package fs-5"></i>
+                            </span>
+
+                            <input type="text" class="form-control bg-black border-secondary text-white"
+                                id="product_name_edit" placeholder="e.g. Logitech G Pro X">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category_edit"
+                            class="form-label text-white-50 text-uppercase fw-semibold small">Category</label>
+
+                        <select class="form-select bg-black border-secondary text-white" id="category_edit"
+                            aria-placeholder="Select Category">
+                            <option value="mouse"> Mouse</option>
+                            <option value="keyboard"> Keyboard</option>
+                            <option value="monitor"> Monitor</option>
+                            <option value="headphone"> Headphone</option>
+                            <option value="iem"> IEM</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price_edit"
+                            class="form-label text-white-50 text-uppercase fw-semibold small">Price</label>
+
+                        <div class="input-group">
+                            <span class="input-group-text bg-black border-secondary text-primary">
+                                <i class="ph-duotone ph-currency-circle-dollar fs-5"></i>
+                            </span>
+
+                            <input type="number" class="form-control bg-black border-secondary text-white"
+                                id="price_edit" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-5 gap-2">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+
+                    <button type="submit" class="btn btn-primary fw-bold px-5">
+                        <i class="ph-fill ph-plus-square me-1"></i> Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+```
+
+```js
+$("#productTable tbody").on('click', '.editBtn', function () {
+    let index = $(this).data('index');
+    let product = products[index];
+
+    // mengambil data nomor baris saat ini
+    currentRow = table.row($(this).closest("tr"));
+
+    $("#edit_index").val(index);
+    $("#product_name_edit").val(product.name);
+    $("#category_edit").val(product.category);
+    $("#price_edit").val(product.price);
+
+    $("#editModal").modal("show");
+
+});
+
+
+$("#editProductForm").submit(function (e) {
+    e.preventDefault();
+
+    let index = $("#edit_index").val();
+    let name = $("#product_name_edit").val();
+    let category = $("#category_edit").val();
+    let price = $("#price_edit").val();
+
+    products[index] = {
+        name: name,
+        category: category,
+        price: price
+    };
+
+    saveToLocalStorage();
+
+    currentRow.data([
+        parseInt(index) + 1,
+        name,
+        categoryBadge(category),
+        "Rp. " + price,
+        `
+            <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+            <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+        `
+    ]).draw(false);
+
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Product has been successfuly edited",
+        showConfirmButton: false,
+        background: '#181818ff',
+        color: '#fff',
+        timer: 2000
+    });
+
+    $("#editModal").modal("hide");
+});
+```
+
+Edit form
+![Output 11](images/image10.png)
+
+#### Delete
+
+Fitur Delete pada website ini digunakan untuk menghapus data produk dari tabel. Proses dimulai ketika pengguna menekan tombol `delete` pada salah satu baris data di tabel. Event klik tersebut ditangkap menggunakan jQuery melalui selector `#productTable tbody .deleteBtn`. Ketika tombol ditekan, sistem akan menampilkan dialog konfirmasi menggunakan `SweetAlert` untuk memastikan bahwa pengguna benar-benar ingin menghapus data tersebut. Jika pengguna menekan tombol konfirmasi, data produk akan dihapus dari array `products` menggunakan metode `splice()`. Setelah itu, baris data yang sesuai akan dihapus dari tabel menggunakan fungsi `row.remove().draw(false)` dari `DataTables`, dan sistem menampilkan notifikasi sukses sebagai umpan balik bahwa produk berhasil dihapus.
+
+```js
+$("#productTable tbody").on('click', '.deleteBtn', function () {
+    let button = $(this);
+    let row = table.row(button.parents('tr'));
+    let index = button.data('index');
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Delete this product?",
+        icon: "warning",
+        position: 'top',
+        showCancelButton: true,
+        background: '#181818ff',
+        color: '#fff',
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it",
+        cancelButtonText: "Cancel"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // delete data dan save ke local storage
+            products.splice(index, 1);
+            saveToLocalStorage();
+
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Product has been successfuly deleted",
+                showConfirmButton: false,
+                background: '#181818ff',
+                color: '#fff',
+                timer: 2000
+            });
+
+            row.remove().draw(false);
+        }
+    });
+});
+```
+
+Contoh output
+![Output 12](images/image11.png)
+
+### Fitur Tambahan
+
+#### Sweetalert
+
+SweetAlert digunakan untuk menampilkan notifikasi atau dialog interaktif dengan tampilan yang lebih menarik dibandingkan `alert()` bawaan JavaScript. Pada website ini, SweetAlert digunakan sebagai feedback kepada pengguna, misalnya ketika data produk berhasil disimpan, diedit, atau dihapus. Notifikasi ditampilkan dalam bentuk popup dengan ikon, posisi tertentu, serta dapat diatur durasi tampilnya menggunakan parameter seperti `timer`, `icon`, dan `position`.
+
+```js
+Swal.fire({
+    position: "top",
+    icon: "success",
+    title: "Product has been successfuly saved",
+    showConfirmButton: false,
+    background: '#181818ff',
+    color: '#fff',
+    timer: 2000
+});
+```
+
+#### AOS (Animate On Scroll)
+
+AOS adalah library JavaScript yang digunakan untuk menambahkan animasi ketika elemen muncul saat halaman di-scroll. Pada website ini, AOS digunakan untuk memberikan efek animasi pada beberapa bagian halaman seperti form dan tabel. Animasi diaktifkan dengan menambahkan atribut seperti `data-aos="fade-up"` dan `data-aos-delay` pada elemen HTML. Library ini kemudian diinisialisasi menggunakan `AOS.init()` untuk mengatur perilaku animasi seperti `durasi` dan `easing`.
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ once: true, duration: 600, easing: 'ease-out-cubic' });</script>
+```
+
+```html
+<div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+<div class="col-md-10" data-aos="fade-up" data-aos-delay="150">
+```
+
+#### Local Storage
+
+Local Storage digunakan untuk menyimpan data produk langsung di browser pengguna sehingga data tetap tersimpan meskipun halaman direfresh. Pada kode tersebut, data produk diambil menggunakan `localStorage.getItem()` dan diubah kembali menjadi objek JavaScript dengan `JSON.parse()`. Ketika terjadi perubahan data seperti penambahan, pengeditan, atau penghapusan produk, fungsi `saveToLocalStorage()` akan menyimpan kembali data tersebut ke Local Storage menggunakan `JSON.stringify()`.
+
+```js
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+function saveToLocalStorage() {
+    localStorage.setItem("products", JSON.stringify(products));
+}
+```
+
+### Source code
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<!-- 2311102191 -->
+<!-- FAHREZA ILHAM WICAKSONO -->
+<!-- 👍🏿 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CihuyStore</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>😁</text></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Phospor icon -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+
+<body class="bg-dark text-white">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-black border-bottom border-primary border-opacity-25 sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-primary fw-bold fs-5" href="#">
+                😁 CihuyStore
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <!-- Hero -->
+        <div class="row justify-content-center my-5">
+            <div class="col-md-10" data-aos="fade-down">
+                <div class="rounded-4 overflow-hidden position-relative"
+                    style="min-height:400px; background-image:url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdhbWluZ3xlbnwwfHwwfHx8MA%3D%3D'); background-size:cover; background-position:center;">
+
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-75"></div>
+
+                    <div class="position-relative p-5 d-flex flex-column justify-content-center"
+                        style="min-height:400px;">
+                        <span
+                            class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-50 rounded-pill px-3 py-2 mb-3 fs-6 fw-semibold align-self-start">
+                            <i class="ph-fill ph-storefront me-1"></i> Official Gaming Store
+                        </span>
+
+                        <h1 class="display-4 fw-bold text-white mb-3">
+                            Welcome to<br>
+                            <span class="text-primary">CihuyStore</span>
+                        </h1>
+
+                        <p class="text-white-50 fs-6 mb-0" style="max-width:500px; line-height:1.8;">
+                            Temukan koleksi periferal gaming terbaik — mouse presisi tinggi, keyboard mekanikal,
+                            monitor responsif, headphone imersif, hingga IEM premium. Harga terbaik, kualitas terjamin.
+                            Cihuy~
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="row justify-content-center mb-5">
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="bg-black border border-primary border-opacity-50 rounded-4 p-4 p-md-5">
 
@@ -259,469 +913,378 @@ Menggunakan tipe input `number` untuk memasukkan nilai harga produk secara numer
                 </div>
             </div>
         </div>
-```
 
-![Output 3](images/image3.png)
+        <!-- Product Table -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="150">
+                <div class="bg-black border border-primary border-opacity-50 rounded-4 p-4 p-md-5">
 
-### Penggunaan Datatable dan JQuery
+                    <p class="text-primary text-uppercase fw-bold small mb-0">Overview</p>
+                    <h2 class="fw-bold text-white mb-1">Product List</h2>
+                    <hr class="border border-primary border-2 opacity-75 mt-2 mb-4 w-25">
 
-
-
-#### Datatable
-
-#### JQuery
-
-### Fitur pada Tabel
-
-### CRUD
-
-### Fitur Tambahan
-
-### 1. Buka kembali halaman ramadan dan tambahkan button atau semacam nya ketika di klik akan menampilkan modal "selamat anda mendapatkan THR" buat se interaktif itu dansebagus mungkin
-
-#### Source code
-
-```html
-<!DOCTYPE html>
-<html lang="id" data-bs-theme="dark">
-
-<!-- 2311102191 -->
-<!-- FAHREZA ILHAM WICAKSONO -->
-<!-- 👍🏿 -->
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramadan Mubarak 1447 H</title>
-
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
-
-    <!-- library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<!-- notif untuk 100.000 -->
-<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
-    <div id="thrToast" class="toast text-bg-success border-0">
-        <div class="toast-body fw-semibold">
-            🎉 MasyaAllah! Kamu mendapatkan THR Rp100.000!
-        </div>
-    </div>
-</div>
-
-<body class="bg-light text-dark">
-
-    <!-- navbar -->
-    <nav class="navbar navbar-white bg-light border-bottom border-success sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-success d-flex align-items-center gap-2" href="#">
-                <i class="bxf bx-moon-stars"></i>
-                Ramadan 1447 H
-            </a>
-
-            <div class="ms-auto text-success fw-semibold">
-                Idul Fitri: <span id="eidCountdown">Loading...</span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- hero -->
-    <div class="bg-success-subtle text-center p-5 border-bottom border-success-subtle">
-        <div class="container p-4">
-            <div class="mb-3">
-                <i class="bxf bx-islam text-success-emphasis fs-1"></i>
-            </div>
-
-            <p class="text-success-emphasis text-uppercase fst-italic fw-semibold letter-spacing mb-2">
-                <i class="bxf bx-sparkles-alt me-2"></i>1447 Hijriyyah<i class="bxf bx-sparkles-alt mx-2"></i>
-            </p>
-
-            <h1 class="display-4 fw-bold text-success mb-1">رَمَضَان مُبَارَك</h1>
-            <h2 class="display-5 fw-bold text-white mb-5">Ramadan Mubarak</h2>
-            <p class="lead text-white col-md-6 mx-auto mb-4">
-                Selamat memasuki bulan suci Ramadan. Semoga ibadah kita diterima,
-                dosa-dosa diampuni, dan hati kita semakin dekat kepada Allah SWT.
-            </p>
-
-            <div class="mt-3">
-                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
-                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
-                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
-                <i class="bxf bx-sparkles text-light-emphasis fs-5"></i>
-            </div>
-
-            <div class="mt-4">
-                <button type="button" class="btn btn-success btn-lg fw-bold px-4 py-2 shadow" id="thr-btn"
-                    data-bs-toggle="modal" data-bs-target="#thrModal">
-                    <i class="bxf bx-clover text-light-emphasis me-1 fs-5"></i> Saya Merasa Beruntung!
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- amalan -->
-    <div id="amalan" class="bg-white-emphasis p-5 border-bottom border-success-subtle">
-        <div class="container">
-            <div class="text-center mb-5">
-                <p class="text-success text-uppercase fw-semibold mb-1">
-                    Amalan Utama
-                </p>
-
-                <h3 class="h2 fw-bold text-success mb-0">Pilar Ramadan</h3>
-                <hr class="border-success-subtle opacity-25 col-2 mx-auto mt-3">
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="bxf bx-moon text-success-emphasis fs-1 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis">Puasa</h4>
-                            <p class="card-text text-secondary-emphasis">Menahan diri dari makan, minum, dan hal yang
-                                membatalkan puasa dari fajar hingga terbenam matahari</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="fa-solid fa-book-quran text-success-emphasis fs-1 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis">Tadarus Al-Qur'an</h5>
-                                <p class="card-text text-secondary-emphasis">Memperbanyak membaca dan mengkaji
-                                    Al-Qur'an. Bulan
-                                    Ramadan adalah bulan diturunkannya Al-Qur'an</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="bxf bx-mosque text-success-emphasis fs-1 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis">Shalat Tarawih</h4>
-                            <p class="card-text text-secondary-emphasis">Shalat sunnah khusus di malam Ramadan,
-                                dilaksanakan berjamaah di masjid setelah shalat Isya</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="fa-solid fa-hand-holding-heart text-success-emphasis fs-1 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis">Sedekah & Zakat</h4>
-                            <p class="card-text text-secondary-emphasis">Memperbanyak sedekah dan menunaikan zakat
-                                fitrah
-                                sebagai bentuk kepedulian kepada sesama</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="fa-solid fa-hands text-success-emphasis fs-1 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis">I'tikaf</h4>
-                            <p class="card-text text-secondary-emphasis">Berdiam diri di masjid, terutama pada 10 malam
-                                terakhir Ramadan untuk meraih Lailatul Qadar</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-success-subtle border border-success h-100 text-center p-2">
-                        <div class="card-body">
-                            <i class="bxf bx-moon-star text-success-emphasis fs-1 mb-3"></i>
-                            <h5 class="card-title fw-bold text-light-emphasis">Lailatul Qadar</h5>
-                            <p class="card-text text-secondary-emphasis">Malam yang lebih baik dari seribu bulan. Dicari
-                                pada malam ganjil di 10 hari terakhir Ramadan</p>
-                        </div>
-                    </div>
+                    <table id="productTable" class="table table-dark table-striped table-hover align-middle w-100">
+                        <thead class="border-bottom border-primary border-opacity-50">
+                            <tr>
+                                <th class="text-white text-uppercase small fw-bold">#</th>
+                                <th class="text-white text-uppercase small fw-bold">Product Name</th>
+                                <th class="text-white text-uppercase small fw-bold">Category</th>
+                                <th class="text-white text-uppercase small fw-bold">Price</th>
+                                <th class="text-white text-uppercase small fw-bold">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ayat qur'an -->
-    <div class="bg-success-subtle p-5 border-bottom border-success-subtle">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <i class="bxf bx-quote-left text-success-emphasis fs-1 opacity-50 mb-3"></i>
-                    <p class="text-success-emphasis fw-bold mb-3 fs-1">
-                        شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ
-                    </p>
+    <!-- edit modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-black border border-primary border-opacity-50 rounded-4 p-2 p-md-4">
+                <h2 class="fw-bold text-white mb-1">Edit Product</h2>
+                <hr class="border border-primary border-2 opacity-75 mt-2 mb-4 w-25">
 
-                    <p class="lead text-light-emphasis fst-italic mb-5">
-                        "Bulan Ramadan adalah (bulan) yang di dalamnya diturunkan Al-Qur'an,
-                        sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai
-                        petunjuk itu dan pembeda (antara yang benar dan yang batil)."
-                    </p>
+                <form id="editProductForm" action="#">
+                    <div class="modal-body">
+                        <input type="hidden" id="edit_index">
 
-                    <span class="badge bg-light text-success px-3 py-2 fs-6">
-                        <i class="fa-solid fa-book-quran me-2"></i>QS. Al-Baqarah: 185
-                    </span>
-                </div>
+                        <div class="mb-3">
+                            <label for="product_name_edit"
+                                class="form-label text-white-50 text-uppercase fw-semibold small">Name</label>
+
+                            <div class="input-group">
+                                <span class="input-group-text bg-black border-secondary text-primary">
+                                    <i class="ph-duotone ph-package fs-5"></i>
+                                </span>
+
+                                <input type="text" class="form-control bg-black border-secondary text-white"
+                                    id="product_name_edit" placeholder="e.g. Logitech G Pro X">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category_edit"
+                                class="form-label text-white-50 text-uppercase fw-semibold small">Category</label>
+
+                            <select class="form-select bg-black border-secondary text-white" id="category_edit"
+                                aria-placeholder="Select Category">
+                                <option value="mouse"> Mouse</option>
+                                <option value="keyboard"> Keyboard</option>
+                                <option value="monitor"> Monitor</option>
+                                <option value="headphone"> Headphone</option>
+                                <option value="iem"> IEM</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="price_edit"
+                                class="form-label text-white-50 text-uppercase fw-semibold small">Price</label>
+
+                            <div class="input-group">
+                                <span class="input-group-text bg-black border-secondary text-primary">
+                                    <i class="ph-duotone ph-currency-circle-dollar fs-5"></i>
+                                </span>
+
+                                <input type="number" class="form-control bg-black border-secondary text-white"
+                                    id="price_edit" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-5 gap-2">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+
+                        <button type="submit" class="btn btn-primary fw-bold px-5">
+                            <i class="ph-fill ph-plus-square me-1"></i> Save Product
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- niat dan doa puasa -->
-    <div id="doa" class="bg-light py-5 border-bottom border-success-subtle">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
-                        <div class="card-body">
-                            <i class="bxf bx-night-light text-success-emphasis fs-2 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Niat Puasa</h4>
-                            <p class="text-success-emphasis mb-3 fs-3">
-                                نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ لِلَّهِ تَعَالَى
-                            </p>
-
-                            <p class="card-text text-secondary-emphasis fst-italic">
-                                "Saya niat berpuasa esok hari untuk menunaikan kewajiban
-                                puasa di bulan Ramadhan karena Allah Ta'ala."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="card bg-success-subtle border border-success text-center h-100 p-4">
-                        <div class="card-body">
-                            <i class="bxf bx-moon-crater text-success-emphasis fs-2 mb-3"></i>
-                            <h4 class="card-title fw-bold text-light-emphasis mb-3">Do'a Berbuka Puasa</h4>
-                            <p class="text-success-emphasis mb-3 fs-3">
-                                اَللّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ
-                            </p>
-
-                            <p class="card-text text-secondary-emphasis fst-italic">
-                                "Ya Allah, untuk-Mu aku berpuasa, kepada-Mu aku beriman,
-                                dan dengan rezeki-Mu aku berbuka."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- tips -->
-    <div class="bg-success-subtle py-5 border-bottom border-success-subtle">
-        <div class="container">
-            <div class="text-center mb-5">
-                <p class="text-success-emphasis text-uppercase fw-semibold mb-1">
-                    <i class="fa-solid fa-lightbulb me-2"></i>Panduan
-                </p>
-
-                <h3 class="h2 fw-bold text-light-emphasis mb-0">Tips Ramadan Produktif</h3>
-                <hr class="border-success opacity-25 col-2 mx-auto mt-3">
-            </div>
-
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
-                        <i class="bxf bx-fork-knife text-success fs-4 mt-1 flex-shrink-0"></i>
-
-                        <div>
-                            <h6 class="fw-bold text-success mb-1">Jaga Asupan Sahur</h6>
-                            <p class="text-secondary mb-0">Konsumsi makanan bergizi dan berserat tinggi agar
-                                energi tahan sepanjang hari.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
-                        <i class="fa-solid fa-droplet text-success fs-4 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h6 class="fw-bold text-success mb-1">Perbanyak Minum Air</h6>
-                            <p class="text-secondary mb-0">Penuhi kebutuhan cairan antara Maghrib dan Sahur agar
-                                tubuh tidak dehidrasi.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
-                        <i class="bxf bx-biceps text-success fs-4 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h6 class="fw-bold text-success mb-1">Tetap Aktif Berolahraga</h6>
-                            <p class="text-secondary mb-0">Olahraga ringan menjelang buka puasa membantu
-                                metabolisme tetap baik.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="d-flex align-items-start gap-3 bg-light border border-success rounded-3 p-3 h-100">
-                        <i class="fa-solid fa-brain text-success fs-4 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h6 class="fw-bold text-success mb-1">Kelola Waktu dengan Bijak</h6>
-                            <p class="text-secondary mb-0">Buat jadwal harian agar ibadah, pekerjaan, dan
-                                istirahat bisa berjalan seimbang.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <footer class="bg-light py-4 border-top border-success-subtle">
-        <div class="container text-center">
-            <p class="text-success fw-bold mb-1">رَمَضَان كَرِيم
-            </p>
-            <p class="text-secondary small text-uppercase mb-3" style="letter-spacing:.25em;">Ramadan Kareem — 1447 H
-            </p>
-
-            <div class="d-flex justify-content-center gap-3 mb-3">
-                <i class="bxf bx-sparkles-alt text-success opacity-50"></i>
-                <i class="bxf bx-moon text-success"></i>
-                <i class="bxf bx-moon-stars text-success fs-5"></i>
-                <i class="bxf bx-moon text-success"></i>
-                <i class="bxf bx-sparkles-alt  text-success opacity-50"></i>
-            </div>
-
-            <p class="text-secondary-emphasis small mb-0">
-                Semoga Ramadan ini membawa berkah, ampunan, dan kebahagiaan untuk kita semua.
-            </p>
-        </div>
+    <!-- Footer -->
+    <footer class="border-top border-secondary border-opacity-25 text-center py-4 mt-2">
+        <p class="mb-0 text-white-50 small">© 2026 <span class="text-primary fw-semibold">CihuyStore</span> — All rights
+            reserved.</p>
     </footer>
 
-    <!-- THR Modal -->
-    <div class="modal fade" id="thrModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 rounded-4 overflow-hidden shadow-lg">
-                <div id="envelopeClosed" class="bg-success-subtle text-center p-5" style="cursor: pointer;"
-                    onclick="openEnvelope()">
-                    <div class="text-success-emphasis fs-1"><i class="bxf bx-envelope-open"></i></div>
-                    <h4 class="text-white fw-semibold mt-3 mb-0">Ketuk untuk membuka!</h4>
-                    <p class="text-lead fst-italic text-white-50">Gold! Gold! Gold!</p>
-                </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
-                <div id="envelopeOpened" class="bg-success-subtle text-center p-5 d-none">
-                    <div class="text-success-emphasis fs-1"><i class="bxf bx-currency-note"></i></div>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-                    <p class="text-white-50 mt-2 mb-1">THR Lebaran 1447H</p>
-                    <h1 id="thrAmount" class="text-success-emphasis fw-bold my-2">Rp 0</h1>
-                    <p id="thrMessage" class="text-lead text-light-emphasis small mb-4"></p>
+    <!-- Datatables -->
+    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
 
-                    <button class="btn btn-success btn-md px-4 fw-semibold" data-bs-dismiss="modal">
-                        Alhamdulillah~
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 600, easing: 'ease-out-cubic' });</script>
 
-    <!-- library untuk efek confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 
 </html>
-
-<script>
-    // tanggal lebaran
-    const eidDate = new Date("March 20, 2026 00:00:00").getTime();
-
-    // fungsi update countdown
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = eidDate - now;
-
-        if (distance < 0) {
-            document.getElementById("eidCountdown").innerHTML = "Selamat Idul Fitri!";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("eidCountdown").innerHTML =
-            days + "h " + hours + "j " + minutes + "m " + seconds + "d";
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // jumlah thr
-    const thrList = [
-        { amount: 10000, message: "Kena nggo tuku es teh 😄" },
-        { amount: 20000, message: "Alhamdulillah, cihuy! 😊" },
-        { amount: 50000, message: "Mayan, nggo tuku bensin! 🛵" },
-        { amount: 75000, message: "Semoga berkah ✨" },
-        { amount: 100000, message: "Pesta Pora! 🎉" },
-    ];
-
-    // fungsi untuk membuat probabilitas thr
-    function getRandom() {
-        const weights = [40, 30, 18, 9, 3]; // probabilitas sesuai index thr list
-        let random = Math.random() * 100, total = 0;
-
-        for (let i = 0; i < weights.length; i++) {
-            total += weights[i];
-            if (random < total) return thrList[i];
-        }
-
-        return thrList[0];
-    }
-
-    // fungsi untuk membuka modal amplop
-    function openEnvelope() {
-        const pick = getRandom();
-        const thr = 'Rp ' + pick.amount.toLocaleString('id-ID');
-
-        document.getElementById('thrAmount').textContent = thr;
-        document.getElementById('thrMessage').textContent = pick.message;
-
-        document.getElementById('envelopeClosed').classList.add('d-none');
-        document.getElementById('envelopeOpened').classList.remove('d-none');
-
-        if (pick.amount === 100000) {
-            // munculkan toast
-            const toast = new bootstrap.Toast(document.getElementById('thrToast'));
-            toast.show();
-
-            // munculkan confetti
-            confetti({
-                particleCount: 300,
-                spread: 150,
-                origin: { y: 0.6 }
-            });
-        }
-    }
-
-    // untuk menutup modal
-    document.getElementById('thrModal').addEventListener('hidden.bs.modal', () => {
-        document.getElementById('envelopeClosed').classList.remove('d-none');
-        document.getElementById('envelopeOpened').classList.add('d-none');
-    });
-</script>
 ```
 
-#### Penjelasan kode
+```js
+//  2311102191 
+//  FAHREZA ILHAM WICAKSONO
+//  👍🏿
 
-Untuk membuat fitur menampilkan thr saya menggunakan modal yang berperan seperti amplop dan nantinya akan muncul ketika suatu button di klik. Modal menggunakan format styling dari bootstrap dengan tambahan dua `div` khusus yang akan menentukan state, `div` pertama menggunakan id `envelopeClosed` ini adalah keadaan dimana amplop belum dibuka. Untuk berganti state saya menambahkan atribut `onClick` pada div agar ketika diklik menjalankan fungsi `openEnvelope()` pada javascript. Fungsi tersebut akan meng-generate jumlah thr dan menampilkanya pada html. Fungsi untuk generate thr dinamakan `getRandom()`, di dalam fungsi tersebut akan melakukan pemilihan acak berdasarkan probabilitas (pada variabel `const weights`) dari thr list (pada array `const thrList`). Untuk menampilkanya pada html digunakan metode `textContent`.
+$(document).ready(function () {
+    let currentRow;
 
-Untuk menampilkan div dengan id `envelopeOpened` digunakan metode `classList.add('nama-kelas')` dan `classList.remove('nama-kelas')` untuk menghilangkan div `envelopeClosed`. Dari thr list terdapat jumlah terbesar yang bisa muncul maka ditambahkan efek tambahan ketika mendapatkan jumlah tersebut dengan tambahan `toast` dari bootstrap dan efek confetti dari library tambahan `confetti.browser.min.js`.
+    // init datatable
+    let table = $("#productTable").DataTable({
+        paging: true,
+        searching: true,
+        stateSave: true,
+        ordering: false,
+        columnDefs: [
+            {
+                targets: 1,
+                className: "fw-bold"
+            },
+            {
+                targets: 2,
+                className: "align-middle text-center"
+            },
+            {
+                targets: 3,
+                className: "fw-bold text-end"
+            },
+            {
+                targets: 4,
+                className: "align-middle text-center"
+            }
+        ]
+    });
 
-Elemen-elemen yang telah disebutkan sebelumnya memiliki atribut tambahan berupa `id`. Atribut ini digunakan karena pada JavaScript, khususnya saat melakukan manipulasi DOM, kita dapat menggunakan selector `document.getElementById` untuk mengakses elemen HTML berdasarkan nilai id tersebut. Dengan adanya id, proses pemilihan elemen menjadi lebih mudah sehingga elemen tersebut dapat diubah atau dimanipulasi melalui JavaScript.
+    // object mapping array, jika ada data pada local storage maka ambil
+    let products = JSON.parse(localStorage.getItem("products")) || [];
 
-#### Output
+    // render jika ada data
+    if (products.length > 0) {
+        products.forEach(function (product, index) {
+            table.row.add([
+                index + 1,
+                product.name,
+                categoryBadge(product.category),
+                "Rp. " + product.price,
+                `
+                    <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+                    <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+                `
+            ]);
+        });
 
-![Output 1](images/task_image1.png)
+        table.draw(false);
+    }
+
+    // menyimpan ke local storage
+    function saveToLocalStorage() {
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+
+    // untuk mengupdate data pada tabel
+    function updateRow(index) {
+        let product = products[index];
+        let row = table.row(index);
+
+        row.data([
+            index + 1,
+            product.name,
+            categoryBadge(product.category),
+            "Rp. " + product.price,
+            `
+                <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+                <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+            `
+        ]).draw(false);
+    }
+
+    // untuk menentukan kelas category
+    function categoryBadge(category) {
+        let badges = {
+            mouse: "primary",
+            keyboard: "danger",
+            monitor: "warning",
+            headphone: "success",
+            iem: "info"
+        };
+
+        let icons = {
+            mouse: "ph-mouse",
+            keyboard: "ph-keyboard",
+            monitor: "ph-monitor",
+            headphone: "ph-headphones",
+            iem: "ph-music-note"
+        };
+
+        return `
+        <span class="badge bg-${badges[category]} fw-bold p-2">
+            <i class="ph-fill ${icons[category]} me-2"></i>
+            ${category.toUpperCase()}
+        </span>`;
+    }
+
+    // create
+    $("#addProductForm").submit(function (event) {
+        event.preventDefault();
+
+        let name = $('#product_name').val();
+        let category = $('#category').val();
+        let price = $('#price').val();
+
+        // mapping object
+        let product = {
+            name: name,
+            category: category,
+            price: price
+        };
+
+        // save ke array dan local storage
+        products.push(product);
+        saveToLocalStorage();
+
+        let index = products.length - 1;
+
+        table.row.add([
+            index + 1,
+            product.name,
+            categoryBadge(product.category),
+            "Rp. " + product.price,
+            `
+                <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+                <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+            `
+        ]).draw(false);
+
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Product has been successfuly saved",
+            showConfirmButton: false,
+            background: '#181818ff',
+            color: '#fff',
+            timer: 2000
+        });
+
+        this.reset();
+    });
+
+    // get data untuk edit modal
+    $("#productTable tbody").on('click', '.editBtn', function () {
+        let index = $(this).data('index');
+        let product = products[index];
+
+        // mengambil data nomor baris saat ini
+        currentRow = table.row($(this).closest("tr"));
+
+        $("#edit_index").val(index);
+        $("#product_name_edit").val(product.name);
+        $("#category_edit").val(product.category);
+        $("#price_edit").val(product.price);
+
+        $("#editModal").modal("show");
+
+    });
+
+
+    // edit
+    $("#editProductForm").submit(function (e) {
+        e.preventDefault();
+
+        let index = $("#edit_index").val();
+        let name = $("#product_name_edit").val();
+        let category = $("#category_edit").val();
+        let price = $("#price_edit").val();
+
+        products[index] = {
+            name: name,
+            category: category,
+            price: price
+        };
+
+        saveToLocalStorage();
+
+        currentRow.data([
+            parseInt(index) + 1,
+            name,
+            categoryBadge(category),
+            "Rp. " + price,
+            `
+                <button class="btn btn-warning btn-sm editBtn" data-index="${index}"><i class="ph-fill ph-pencil-simple"></i></button>
+                <button class="btn btn-danger btn-sm deleteBtn" data-index="${index}"><i class="ph-fill ph-trash"></i></button>
+            `
+        ]).draw(false);
+
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Product has been successfuly edited",
+            showConfirmButton: false,
+            background: '#181818ff',
+            color: '#fff',
+            timer: 2000
+        });
+
+        $("#editModal").modal("hide");
+    });
+
+    // delete
+    $("#productTable tbody").on('click', '.deleteBtn', function () {
+        let button = $(this);
+        let row = table.row(button.parents('tr'));
+        let index = button.data('index');
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Delete this product?",
+            icon: "warning",
+            position: 'top',
+            showCancelButton: true,
+            background: '#181818ff',
+            color: '#fff',
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it",
+            cancelButtonText: "Cancel"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // delete data dan save ke local storage
+                products.splice(index, 1);
+                saveToLocalStorage();
+
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "Product has been successfuly deleted",
+                    showConfirmButton: false,
+                    background: '#181818ff',
+                    color: '#fff',
+                    timer: 2000
+                });
+
+                row.remove().draw(false);
+            }
+        });
+    });
+});
+```
+
+### Output
+
+![Output 13](images/image12.png)
