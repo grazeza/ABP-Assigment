@@ -13,7 +13,7 @@
 
   <br />
 
-  <img src="images/logo.jpeg" alt="Logo" width="300">
+  <img src="docs/images/logo.jpeg" alt="Logo" width="300">
 
   <br />
   <br />
@@ -1619,4 +1619,4 @@ class Products extends BaseController
 
 ### Lampiran
 
-[Link Video Presentasi](http://getbootstrap.com)
+[Link Video Presentasi](https://drive.google.com/file/d/1qkXoagqD0EPDoWbAQzYEreOTbv2ZvaAZ/view?usp=sharing)

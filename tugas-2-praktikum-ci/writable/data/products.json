@@ -22,5 +22,11 @@
         "category": "keyboard",
         "price": "100000",
         "id": "69c474f40bc90"
+    },
+    {
+        "product_name": "Fantech THOR X9",
+        "category": "mouse",
+        "price": "120000",
+        "id": "69c58a893c507"
     }
 ]
