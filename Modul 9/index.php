@@ -105,6 +105,16 @@ function isLulus($nilaiAkhir): bool
     <!-- Datatables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
     <script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+
+    <style>
+        .profile-card {
+            transition: 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 
 <body>
