@@ -12,6 +12,7 @@
 
                 <form action="{{ route('logout') }}" method="post" style="margin:0;">
                     @csrf
+
                     <button type="submit" class="btn btn-logout">
                         <i class="fa fa-right-from-bracket"></i> Logout
                     </button>
@@ -38,6 +39,10 @@
 
                             <td style="text-align:center; vertical-align:middle;">
                                 <div style="display:flex; gap:8px; justify-content:center; align-items:center;">
+                                    <a href="{{ route('products.show', $product->uuid) }}" class="btn btn-edit">
+                                        <i class="fa fa-info"></i>
+                                    </a>
+
                                     <a href="{{ route('products.edit', $product->uuid) }}" class="btn btn-edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
@@ -46,7 +51,7 @@
                                         style="margin:0;">
                                         @csrf
                                         @method('delete')
-                                        
+
                                         <button type="button" class="btn btn-delete confirm-delete">
                                             <i class="fa fa-trash"></i>
                                         </button>

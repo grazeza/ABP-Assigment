@@ -16,7 +16,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="form-group">
                     <label for="category" class="form-label text-white-50 text-uppercase fw-semibold small">Category</label>
 
                     <select name="category" id="category" aria-placeholder="Select Category">
@@ -41,7 +41,7 @@
                         <i class="fa fa-save"></i> Simpan Data
                     </button>
 
-                    <a href="{{ route('products.index') }}" class="btn btn-back">Kembali</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-secondary">Kembali</a>
                 </div>
 
             </form>
